@@ -57,4 +57,46 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Docker
+
+This project includes Docker support for containerized deployment.
+
+### Building the Docker image
+
+To build the Docker image, run:
+
+```bash
+docker build -t orange-sg-template .
+```
+
+### Running the Docker container
+
+To run the application in a Docker container, use:
+
+```bash
+docker run -p 8080:80 orange-sg-template
+```
+
+This will start the application and make it available at `http://localhost:8080/`.
+
+### Docker Compose (optional)
+
+If you prefer using Docker Compose, create a `docker-compose.yml` file with:
+
+```yaml
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "8080:80"
+```
+
+Then run:
+
+```bash
+docker-compose up
+```
+
 # orange-ui-template
