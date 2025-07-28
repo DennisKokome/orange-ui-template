@@ -1,0 +1,212 @@
+<div class="container-fluid">
+  <div class="row page-title">
+    <div class="col-12">
+      <h1>Checkboxes</h1>
+      <p class="text-muted">Checkbox form elements using Angular Material and Boosted Orange</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Basic Checkboxes -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Basic Checkboxes</mat-card-title>
+          <mat-card-subtitle>Simple checkbox examples</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="checkboxChecked" [(ngModel)]="checked">
+              <label class="form-check-label" for="checkboxChecked">
+                Checked: {{checked}}
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="checkboxIndeterminate" [(ngModel)]="indeterminate">
+              <label class="form-check-label" for="checkboxIndeterminate">
+                Indeterminate: {{indeterminate}}
+              </label>
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <h3 class="section-title">Checkbox with ngModel</h3>
+          <div class="mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="checkboxTerms" [(ngModel)]="isChecked">
+              <label class="form-check-label" for="checkboxTerms">
+                I agree to the terms and conditions
+              </label>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <p>Model value: <strong>{{ isChecked }}</strong></p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Checkbox Colors -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Checkbox Colors</mat-card-title>
+          <mat-card-subtitle>Different color themes for checkboxes</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="checkboxPrimary" checked>
+              <label class="form-check-label" for="checkboxPrimary">
+                Primary Color
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-check">
+              <input class="form-check-input bg-info" type="checkbox" id="checkboxAccent" checked>
+              <label class="form-check-label" for="checkboxAccent">
+                Accent Color
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-check">
+              <input class="form-check-input bg-danger" type="checkbox" id="checkboxWarn" checked>
+              <label class="form-check-label" for="checkboxWarn">
+                Warn Color
+              </label>
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <h3 class="section-title">Disabled State</h3>
+          <div class="mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="checkboxDisabled" disabled>
+              <label class="form-check-label" for="checkboxDisabled">
+                Disabled Unchecked
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="checkboxDisabledChecked" checked disabled>
+              <label class="form-check-label" for="checkboxDisabledChecked">
+                Disabled Checked
+              </label>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Checkbox Form -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Checkbox Form</mat-card-title>
+          <mat-card-subtitle>Form with checkbox validation</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="checkboxForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="acceptTerms" formControlName="acceptTerms"
+                  [ngClass]="{'is-invalid': checkboxForm.get('acceptTerms')?.invalid && checkboxForm.get('acceptTerms')?.touched}">
+                <label class="form-check-label" for="acceptTerms">
+                  I accept the terms and conditions
+                </label>
+                <div *ngIf="checkboxForm.get('acceptTerms')?.invalid && checkboxForm.get('acceptTerms')?.touched" class="invalid-feedback">
+                  You must accept the terms and conditions to continue
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="receiveEmails" formControlName="receiveEmails">
+                <label class="form-check-label" for="receiveEmails">
+                  I would like to receive emails about product updates
+                </label>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="receiveNotifications" formControlName="receiveNotifications">
+                <label class="form-check-label" for="receiveNotifications">
+                  I would like to receive notifications
+                </label>
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <button class="btn btn-primary" type="submit" [disabled]="checkboxForm.invalid">
+                Submit
+              </button>
+            </div>
+          </form>
+
+          <div class="mt-3" *ngIf="checkboxForm.valid">
+            <p>Form Values:</p>
+            <pre class="bg-light p-3 rounded">{{ checkboxForm.value | json }}</pre>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Checkbox List -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Task List with Checkboxes</mat-card-title>
+          <mat-card-subtitle>Interactive task list with checkboxes</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="allTasks"
+                [checked]="allComplete"
+                [indeterminate]="someComplete"
+                (change)="onAllTasksChange($event)">
+              <label class="form-check-label fw-bold" for="allTasks">
+                All Tasks
+              </label>
+            </div>
+          </div>
+
+          <hr class="my-3">
+
+          <div class="mb-2" *ngFor="let task of tasks; let i = index">
+            <div class="form-check">
+              <input class="form-check-input"
+                type="checkbox"
+                [id]="'task' + i"
+                [(ngModel)]="task.completed"
+                [ngClass]="{'bg-info': task.color === 'accent', 'bg-danger': task.color === 'warn'}"
+                (ngModelChange)="updateAllComplete()">
+              <label class="form-check-label" [for]="'task' + i">
+                {{ task.name }}
+              </label>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <p>Completed Tasks: <span class="badge bg-primary">{{ getCompletedTasksCount() }} / {{ getTotalTasksCount() }}</span></p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

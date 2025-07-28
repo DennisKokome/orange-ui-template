@@ -1,0 +1,359 @@
+// Using Modernized Orange styling from orange_hackathon_web
+
+.dashboard-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  p {
+    margin-top: 1rem;
+    color: var(--orange-text-light);
+    font-weight: 500;
+  }
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+
+  h1 {
+    margin: 0;
+    color: var(--orange-text);
+    font-size: 2rem; /* Updated to match orange_hackathon_web */
+    font-weight: 600; /* Updated to match orange_hackathon_web */
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 3rem; /* Updated to match orange_hackathon_web */
+      height: 0.25rem;
+      background-color: var(--orange-primary);
+      border-radius: 0.125rem;
+    }
+  }
+}
+
+.date-range-form {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+
+  mat-form-field {
+    width: 10rem;
+  }
+
+  button {
+    height: auto; /* Updated to match orange_hackathon_web */
+    border-radius: 6px; /* Updated to match orange_hackathon_web */
+    padding: 0.75rem 1.5rem; /* Updated to match orange_hackathon_web */
+    font-weight: 600; /* Updated to match orange_hackathon_web */
+    display: inline-flex; /* Added to match orange_hackathon_web */
+    align-items: center; /* Added to match orange_hackathon_web */
+    transition: all 0.3s ease; /* Added to match orange_hackathon_web */
+
+    mat-icon {
+      margin-right: 0.5rem;
+    }
+
+    &:hover {
+      transform: translateY(-2px); /* Added to match orange_hackathon_web */
+    }
+  }
+}
+
+// Stats Cards - Modernized Orange Style
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background-color: var(--orange-card-bg);
+  border-radius: 12px; /* Updated to match orange_hackathon_web */
+  border: 2px solid transparent; /* Updated to match orange_hackathon_web */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Updated to match orange_hackathon_web */
+  transition: all 0.3s ease; /* Updated to match orange_hackathon_web */
+
+  &:hover {
+    transform: translateY(-5px); /* Updated to match orange_hackathon_web */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important; /* Updated to match orange_hackathon_web */
+    border-color: var(--orange-primary); /* Updated to match orange_hackathon_web */
+  }
+
+  mat-card-content {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem; /* Updated to match orange_hackathon_web */
+  }
+
+  .stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem; /* Updated to match orange_hackathon_web */
+    height: 4rem; /* Updated to match orange_hackathon_web */
+    border-radius: 50%; /* Updated to match orange_hackathon_web */
+    background: linear-gradient(135deg, var(--orange-primary), var(--orange-primary-dark)); /* Updated to match orange_hackathon_web */
+    margin-right: 1.5rem; /* Updated to match orange_hackathon_web */
+
+    mat-icon {
+      color: white; /* Updated to match orange_hackathon_web */
+      font-size: 2rem; /* Updated to match orange_hackathon_web */
+      width: 2rem; /* Updated to match orange_hackathon_web */
+      height: 2rem; /* Updated to match orange_hackathon_web */
+    }
+  }
+
+  .stat-details {
+    h3 {
+      margin: 0 0 0.75rem 0; /* Updated to match orange_hackathon_web */
+      font-size: 1rem; /* Updated to match orange_hackathon_web */
+      color: var(--orange-text);
+      font-weight: 600; /* Updated to match orange_hackathon_web */
+      letter-spacing: 0.5px;
+    }
+
+    .stat-value {
+      margin: 0;
+      font-size: 2rem; /* Updated to match orange_hackathon_web */
+      font-weight: 600; /* Updated to match orange_hackathon_web */
+      color: var(--orange-text);
+    }
+  }
+}
+
+// Charts - Modernized Orange Style
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.chart-card {
+  background-color: var(--orange-card-bg);
+  border-radius: 12px; /* Updated to match orange_hackathon_web */
+  border: 2px solid transparent; /* Updated to match orange_hackathon_web */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Updated to match orange_hackathon_web */
+  overflow: hidden;
+  transition: all 0.3s ease; /* Added to match orange_hackathon_web */
+
+  &:hover {
+    transform: translateY(-3px); /* Added to match orange_hackathon_web */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Added to match orange_hackathon_web */
+  }
+
+  mat-card-header {
+    padding: 1.5rem 1.5rem 0; /* Updated to match orange_hackathon_web */
+
+    mat-card-title {
+      font-size: 1.25rem; /* Updated to match orange_hackathon_web */
+      font-weight: 600; /* Updated to match orange_hackathon_web */
+      color: var(--orange-text);
+    }
+  }
+
+  mat-card-content {
+    padding: 1.5rem; /* Updated to match orange_hackathon_web */
+    height: 280px;
+  }
+}
+
+// Activity Table - Modernized Orange Style
+.activity-card {
+  background-color: var(--orange-card-bg);
+  border-radius: 12px; /* Updated to match orange_hackathon_web */
+  border: 2px solid transparent; /* Updated to match orange_hackathon_web */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Updated to match orange_hackathon_web */
+  margin-bottom: 2rem;
+  overflow: hidden;
+  transition: all 0.3s ease; /* Added to match orange_hackathon_web */
+
+  &:hover {
+    transform: translateY(-3px); /* Added to match orange_hackathon_web */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Added to match orange_hackathon_web */
+  }
+
+  mat-card-header {
+    padding: 1.5rem 1.5rem 0; /* Updated to match orange_hackathon_web */
+
+    mat-card-title {
+      font-size: 1.25rem; /* Updated to match orange_hackathon_web */
+      font-weight: 600; /* Updated to match orange_hackathon_web */
+      color: var(--orange-text);
+    }
+  }
+
+  mat-card-content {
+    padding: 1.5rem; /* Updated to match orange_hackathon_web */
+  }
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 8px; /* Added to match orange_hackathon_web */
+}
+
+.activity-table {
+  width: 100%;
+
+  th.mat-header-cell {
+    font-weight: 600; /* Updated to match orange_hackathon_web */
+    color: var(--orange-text);
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+    background-color: #f8f9fa; /* Updated to match orange_hackathon_web */
+    padding: 0.75rem 1.5rem; /* Updated to match orange_hackathon_web */
+  }
+
+  td.mat-cell {
+    padding: 0.75rem 1.5rem; /* Updated to match orange_hackathon_web */
+    border-bottom: 1px solid var(--orange-border);
+  }
+
+  tr.mat-row:hover {
+    background-color: rgba(255, 107, 53, 0.05); /* Updated to match new primary color */
+  }
+}
+
+// Responsive adjustments - Modernized Orange Style
+@media (max-width: 1200px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .date-range-form {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+// Custom Material styling - Modernized Orange Style
+::ng-deep {
+  .mat-mdc-card {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important; /* Updated to match orange_hackathon_web */
+    border-radius: 12px !important; /* Updated to match orange_hackathon_web */
+    border: 2px solid transparent !important; /* Updated to match orange_hackathon_web */
+    transition: all 0.3s ease !important; /* Added to match orange_hackathon_web */
+  }
+
+  .mat-mdc-raised-button.mat-primary {
+    background-color: var(--orange-primary) !important;
+    font-weight: 600 !important; /* Updated to match orange_hackathon_web */
+    border-radius: 6px !important; /* Updated to match orange_hackathon_web */
+    padding: 0.75rem 1.5rem !important; /* Updated to match orange_hackathon_web */
+    transition: all 0.3s ease !important; /* Added to match orange_hackathon_web */
+  }
+
+  .mat-mdc-raised-button.mat-primary:hover {
+    background-color: var(--orange-primary-dark) !important; /* Added to match orange_hackathon_web */
+    transform: translateY(-2px) !important; /* Added to match orange_hackathon_web */
+  }
+
+  .mat-mdc-progress-spinner circle {
+    stroke: var(--orange-primary) !important;
+  }
+
+  .mat-mdc-form-field-appearance-outline .mat-mdc-form-field-outline-thick {
+    color: var(--orange-primary);
+  }
+
+  .mat-mdc-form-field.mat-focused .mat-mdc-form-field-label {
+    color: var(--orange-primary);
+  }
+
+  .mat-mdc-form-field-appearance-outline .mat-mdc-form-field-outline {
+    border-radius: 6px; /* Updated to match orange_hackathon_web */
+  }
+
+  .mat-mdc-paginator {
+    background-color: transparent;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Updated to match orange_hackathon_web */
+    border-radius: 0 0 8px 8px; /* Added to match orange_hackathon_web */
+  }
+
+  .mat-mdc-paginator-page-size-label,
+  .mat-mdc-paginator-range-label {
+    font-size: 0.875rem;
+    color: var(--orange-text);
+  }
+
+  .mat-mdc-paginator-navigation-button {
+    color: var(--orange-primary);
+  }
+}
+
+// No data message styling
+.no-data-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: var(--orange-text-light);
+
+  mat-icon {
+    font-size: 3rem;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+    color: var(--orange-text-light);
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 0;
+  }
+}

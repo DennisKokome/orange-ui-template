@@ -1,0 +1,151 @@
+<div class="container-fluid">
+  <div class="row page-title">
+    <div class="col-12">
+      <h1>Radio Buttons</h1>
+      <p class="text-muted">Form elements with radio button functionality using Angular Material and Boosted Orange</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Basic Radio Buttons -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Basic Radio Buttons</mat-card-title>
+          <mat-card-subtitle>Simple radio button selection</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <h3>Select your favorite fruit:</h3>
+          <div class="mb-3">
+            <div *ngFor="let option of basicOptions; let i = index" class="form-check">
+              <input class="form-check-input"
+                type="radio"
+                [id]="'fruit' + i"
+                [value]="option"
+                [formControl]="basicFavorite"
+                [checked]="basicFavorite.value === option">
+              <label class="form-check-label" [for]="'fruit' + i">
+                {{option}}
+              </label>
+            </div>
+          </div>
+          <div class="mt-3">
+            <p>Selected fruit: <strong>{{ basicFavorite.value }}</strong></p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Radio Button Group with Form -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Radio Button Group with Form</mat-card-title>
+          <mat-card-subtitle>Radio buttons in a form group</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="seasonForm">
+            <h3>Select your favorite season:</h3>
+            <div class="mb-3">
+              <div *ngFor="let season of seasons; let i = index" class="form-check">
+                <input class="form-check-input"
+                  type="radio"
+                  [id]="'season' + i"
+                  [value]="season.toLowerCase()"
+                  formControlName="season">
+                <label class="form-check-label" [for]="'season' + i">
+                  {{season}}
+                </label>
+              </div>
+            </div>
+          </form>
+          <div class="mt-3">
+            <p>Selected season: <strong>{{ seasonForm.get('season')?.value }}</strong></p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Radio Buttons with Labels and Descriptions -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Radio Buttons with Labels and Descriptions</mat-card-title>
+          <mat-card-subtitle>Enhanced radio buttons with additional information</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="technologyForm">
+            <h3>Select your preferred technology:</h3>
+            <div class="mb-3">
+              <div *ngFor="let tech of technologies; let i = index" class="form-check mb-3">
+                <input class="form-check-input"
+                  type="radio"
+                  [id]="'tech' + i"
+                  [value]="tech.value"
+                  formControlName="technology">
+                <label class="form-check-label" [for]="'tech' + i">
+                  <div class="fw-bold">{{ tech.viewValue }}</div>
+                  <div class="text-muted small">{{ tech.description }}</div>
+                </label>
+              </div>
+            </div>
+          </form>
+          <div class="mt-3">
+            <p>Selected technology: <strong>{{ technologyForm.get('technology')?.value }}</strong></p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Disabled Radio Buttons -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Disabled Radio Buttons</mat-card-title>
+          <mat-card-subtitle>Radio buttons with disabled state</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="disabledOptions">
+            <h3>Options with disabled state:</h3>
+            <div class="mb-3">
+              <div class="form-check">
+                <input class="form-check-input"
+                  type="radio"
+                  id="option1"
+                  value="option1"
+                  formControlName="option">
+                <label class="form-check-label" for="option1">
+                  Option 1 (Enabled)
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input"
+                  type="radio"
+                  id="option2"
+                  value="option2"
+                  formControlName="option"
+                  [disabled]="true">
+                <label class="form-check-label" for="option2">
+                  Option 2 (Disabled)
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input"
+                  type="radio"
+                  id="option3"
+                  value="option3"
+                  formControlName="option">
+                <label class="form-check-label" for="option3">
+                  Option 3 (Enabled)
+                </label>
+              </div>
+            </div>
+          </form>
+          <div class="mt-3">
+            <p class="text-muted"><i class="bi bi-info-circle me-1"></i> Note: Option 2 is disabled in the form control</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

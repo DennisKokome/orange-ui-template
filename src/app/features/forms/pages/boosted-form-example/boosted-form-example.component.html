@@ -1,0 +1,198 @@
+<div class="container-fluid">
+  <div class="row page-title">
+    <div class="col-12">
+      <h1>Boosted Orange Forms</h1>
+      <p class="text-muted">Form examples using Boosted Orange components</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Basic Form Control -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Basic Form Controls</h5>
+          <p class="card-subtitle">Standard form controls using Boosted Orange</p>
+        </div>
+        <div class="card-body">
+          <form>
+            <!-- Text input -->
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+
+            <!-- Textarea -->
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+
+            <!-- Select -->
+            <div class="mb-3">
+              <label for="exampleFormSelect" class="form-label">Example select</label>
+              <select class="form-select" id="exampleFormSelect" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button type="button" class="btn btn-secondary me-md-2">Cancel</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Group -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Input Groups</h5>
+          <p class="card-subtitle">Input groups using Boosted Orange</p>
+        </div>
+        <div class="card-body">
+          <form>
+            <!-- Input with text addon -->
+            <div class="mb-3">
+              <label for="inputWithText" class="form-label">Input with text addon</label>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input type="text" class="form-control" id="inputWithText" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+            </div>
+
+            <!-- Input with button addon -->
+            <div class="mb-3">
+              <label for="inputWithButton" class="form-label">Input with button addon</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="inputWithButton" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+              </div>
+            </div>
+
+            <!-- Input with dropdown -->
+            <div class="mb-3">
+              <label for="inputWithDropdown" class="form-label">Input with dropdown</label>
+              <div class="input-group">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul>
+                <input type="text" class="form-control" id="inputWithDropdown" aria-label="Text input with dropdown button">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checks and Radios -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Checks and Radios</h5>
+          <p class="card-subtitle">Checkbox and radio button examples using Boosted Orange</p>
+        </div>
+        <div class="card-body">
+          <form>
+            <!-- Default checkbox -->
+            <div class="mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Default checkbox
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                <label class="form-check-label" for="flexCheckChecked">
+                  Checked checkbox
+                </label>
+              </div>
+            </div>
+
+            <!-- Default radio button -->
+            <div class="mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Default radio
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Default checked radio
+                </label>
+              </div>
+            </div>
+
+            <!-- Switch -->
+            <div class="mb-3">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+              </div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Layout -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Form Layout</h5>
+          <p class="card-subtitle">Horizontal form layout using Boosted Orange</p>
+        </div>
+        <div class="card-body">
+          <form>
+            <!-- Horizontal form group -->
+            <div class="row mb-3">
+              <label for="inputEmail3" class="col-sm-3 col-form-label">Email</label>
+              <div class="col-sm-9">
+                <input type="email" class="form-control" id="inputEmail3">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="inputPassword3" class="col-sm-3 col-form-label">Password</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" id="inputPassword3">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-9 offset-sm-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="gridCheck1">
+                  <label class="form-check-label" for="gridCheck1">
+                    Remember me
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-9 offset-sm-3">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

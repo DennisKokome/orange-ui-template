@@ -1,0 +1,381 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+// Using CSS variables from global styles - Modernized to match orange_hackathon_web
+
+// Header Styles
+.header {
+  background: #000000;
+  color: white;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo-box {
+  color: #ff6b35;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-right: 0.75rem;
+  text-transform: lowercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orange-logo-img {
+  max-height: 30px;
+  width: auto;
+  display: block;
+}
+
+.desktop-logo {
+  display: block;
+}
+
+.mobile-logo {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-logo {
+    display: none;
+  }
+
+  .mobile-logo {
+    display: block;
+  }
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ff6b35;
+}
+
+// Main Content Styles
+.main {
+  min-height: calc(100vh - 200px);
+  padding: 2rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--orange-background);
+  padding: 2rem 1rem;
+  min-height: 60vh; /* Reduced from 100vh to accommodate header and footer */
+}
+
+.login-card {
+  width: 100%;
+  max-width: 450px; /* Increased to match orange_hackathon_web */
+  background-color: var(--orange-card-bg);
+  border-radius: 12px; /* Updated to match orange_hackathon_web */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Enhanced shadow to match orange_hackathon_web */
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  .logo {
+    width: 120px;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 600; /* Updated to match orange_hackathon_web */
+    margin-bottom: 0.5rem;
+    color: var(--orange-text);
+  }
+
+  p {
+    color: var(--orange-text-light);
+    font-size: 1rem;
+    margin: 0;
+    margin-bottom: 1rem; /* Added to match orange_hackathon_web */
+  }
+}
+
+.login-form {
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.spinner {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.otp-info {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  background-color: #f8f9fa; /* Added to match orange_hackathon_web */
+  padding: 1rem; /* Added to match orange_hackathon_web */
+  border-radius: 8px; /* Added to match orange_hackathon_web */
+
+  p {
+    margin: 0.5rem 0;
+    color: var(--orange-text-light);
+  }
+
+  .email-display {
+    font-weight: 600; /* Updated to match orange_hackathon_web */
+    color: var(--orange-text);
+    margin-bottom: 1rem;
+    font-size: 1.1rem; /* Added to match orange_hackathon_web */
+  }
+}
+
+// Footer Styles
+.footer {
+  background-color: #000000;
+  color: white;
+  padding: 2rem 0 1rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+  color: #ff6b35;
+  margin-bottom: 1rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #ff6b35;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  padding-top: 1rem;
+  text-align: center;
+  color: #ccc;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .nav {
+    gap: 1rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 1.5rem;
+    margin: 0 15px; /* Added to match orange_hackathon_web */
+  }
+
+  .login-header {
+    .logo {
+      width: 100px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+}
+
+// Custom styles for Material components
+::ng-deep {
+  .mat-mdc-raised-button.mat-primary {
+    background-color: var(--orange-primary);
+    transition: all 0.3s ease; /* Added to match orange_hackathon_web */
+  }
+
+  .mat-mdc-raised-button.mat-primary:hover {
+    background-color: var(--orange-primary-dark);
+    transform: translateY(-2px); /* Added to match orange_hackathon_web */
+  }
+
+  .mat-mdc-form-field-focus-overlay {
+    background-color: rgba(255, 107, 53, 0.1); /* Updated to match new primary color */
+  }
+
+  .mat-mdc-progress-spinner.mat-accent circle {
+    stroke: white;
+  }
+
+  // Form field styling to match orange_hackathon_web
+  .mat-mdc-form-field-appearance-outline .mat-mdc-form-field-outline {
+    border-radius: 6px; /* Updated to match orange_hackathon_web */
+  }
+
+  .mat-mdc-form-field-appearance-outline .mat-mdc-form-field-infix {
+    padding: 0.75rem 0; /* Updated to match orange_hackathon_web */
+  }
+
+  // Email input styling to match orange_hackathon_web input
+  .mat-mdc-form-field {
+    width: 100%;
+  }
+
+  .mat-mdc-form-field.mat-form-field-appearance-outline .mat-mdc-text-field-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+    background-color: white !important;
+  }
+
+  .mat-mdc-form-field.mat-form-field-appearance-outline .mat-mdc-form-field-flex {
+    height: auto;
+    padding: 0;
+  }
+
+  .mat-mdc-form-field.mat-form-field-appearance-outline .mdc-notched-outline__leading,
+  .mat-mdc-form-field.mat-form-field-appearance-outline .mdc-notched-outline__notch,
+  .mat-mdc-form-field.mat-form-field-appearance-outline .mdc-notched-outline__trailing {
+    border-width: 2px;
+    border-color: #e9ecef;
+  }
+
+  .mat-mdc-form-field.mat-form-field-appearance-outline:hover .mdc-notched-outline__leading,
+  .mat-mdc-form-field.mat-form-field-appearance-outline:hover .mdc-notched-outline__notch,
+  .mat-mdc-form-field.mat-form-field-appearance-outline:hover .mdc-notched-outline__trailing {
+    border-color: #d1d7dc;
+  }
+
+  .mat-mdc-form-field.mat-focused.mat-form-field-appearance-outline .mdc-notched-outline__leading,
+  .mat-mdc-form-field.mat-focused.mat-form-field-appearance-outline .mdc-notched-outline__notch,
+  .mat-mdc-form-field.mat-focused.mat-form-field-appearance-outline .mdc-notched-outline__trailing {
+    border-color: #ff6b35;
+    border-width: 2px;
+  }
+
+  .mat-mdc-form-field.mat-form-field-appearance-outline .mat-mdc-form-field-infix {
+    padding: 0.75rem 0;
+  }
+
+  .mat-mdc-text-field-wrapper {
+    background-color: white !important;
+  }
+
+  .mat-mdc-form-field-label-wrapper .mat-mdc-form-field-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000000;
+    top: 0;
+    margin-top: 0;
+    transform: translateY(0);
+  }
+
+  // Align the label with the icon
+  .mat-mdc-form-field-label-wrapper {
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+  }
+
+  // Ensure the icon is properly aligned
+  .mat-mdc-form-field-icon-prefix {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .mat-mdc-form-field-icon-prefix > .mat-icon {
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mat-mdc-input-element {
+    font-size: 1rem;
+    padding: 0.75rem;
+    width: 100%;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+  }
+
+  // Style the input to match the standard HTML input
+  input.mat-mdc-input-element {
+    background-color: white !important;
+    color: #000000;
+  }
+
+  // Override Material's default outline styling to match standard HTML input
+  .mdc-notched-outline__leading {
+    border-radius: 6px 0 0 6px !important;
+  }
+
+  .mdc-notched-outline__trailing {
+    border-radius: 0 6px 6px 0 !important;
+  }
+}

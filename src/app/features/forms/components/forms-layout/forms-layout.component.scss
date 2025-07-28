@@ -1,0 +1,55 @@
+// Forms sidebar styling
+.forms-sidebar {
+  position: sticky;
+  top: 1rem;
+
+  mat-card-header {
+    margin-bottom: 1rem;
+  }
+
+  mat-card-content {
+    padding: 0;
+  }
+
+  mat-nav-list {
+    padding-top: 0;
+  }
+}
+
+// Active link styling
+.active-link {
+  background-color: rgba(var(--orange-primary-rgb), 0.1);
+  color: var(--orange-primary);
+
+  mat-icon {
+    color: var(--orange-primary);
+  }
+}
+
+// Disabled link styling
+.disabled-link {
+  opacity: 0.6;
+  cursor: not-allowed;
+  position: relative;
+}
+
+// Coming soon badge
+.coming-soon-badge {
+  position: absolute;
+  right: 16px;
+  font-size: 0.7rem;
+  background-color: var(--orange-supporting-blue);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+// Responsive adjustments
+@media (max-width: 991.98px) {
+  .forms-sidebar {
+    position: relative;
+    top: 0;
+    margin-bottom: 1.5rem;
+  }
+}

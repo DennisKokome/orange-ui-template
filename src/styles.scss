@@ -1,1 +1,782 @@
-/* You can add global styles to this file, and also import other style files */
+/* Import Boosted Orange styles */
+// Override Boosted variables before importing
+$primary: #ff6b35; // Orange primary color
+$secondary: #000000; // Black
+$success: #28a745;
+$warning: #ffcc00;
+$danger: #dc3545;
+$info: #527edb;
+
+// Supporting colors
+$orange-supporting-blue: #4bb4e6;
+$orange-supporting-purple: #a885d8;
+$orange-supporting-green: #50be87;
+
+// Text and background colors
+$body-color: #333333;
+$body-bg: #ffffff;
+$border-color: #e9ecef;
+
+// Border radius
+$border-radius: 0.375rem;
+$border-radius-sm: 0.25rem;
+$border-radius-lg: 0.5rem;
+$border-radius-xl: 0.75rem;
+$border-radius-2xl: 1rem;
+
+// Import Boosted
+@import "boosted/scss/boosted";
+
+// Custom CSS variables for project-specific use
+:root {
+  /* Primary Orange Brand Colors */
+  --orange-primary: #{$primary};
+  --orange-primary-light: #ff8f29;
+  --orange-primary-dark: #e55a2b;
+
+  /* Secondary Colors */
+  --orange-secondary: #{$secondary};
+  --orange-secondary-light: #333333;
+  --orange-secondary-dark: #000000;
+
+  /* Supporting Colors */
+  --orange-supporting-blue: #{$orange-supporting-blue};
+  --orange-supporting-purple: #{$orange-supporting-purple};
+  --orange-supporting-green: #{$orange-supporting-green};
+
+  /* Functional Colors */
+  --orange-success: #{$success};
+  --orange-warning: #{$warning};
+  --orange-error: #{$danger};
+  --orange-info: #{$info};
+
+  /* Text and Background Colors */
+  --orange-text: #{$body-color};
+  --orange-text-light: #6c757d;
+  --orange-background: #{$body-bg};
+  --orange-card-bg: #ffffff;
+  --orange-border: #{$border-color};
+
+  /* Coral variables for backward compatibility */
+  --coral-primary: var(--orange-primary);
+  --coral-primary-light: var(--orange-primary-light);
+  --coral-primary-dark: var(--orange-primary-dark);
+  --coral-secondary: var(--orange-secondary);
+  --coral-secondary-light: var(--orange-secondary-light);
+  --coral-secondary-dark: var(--orange-secondary-dark);
+  --coral-supporting-blue: var(--orange-supporting-blue);
+  --coral-supporting-purple: var(--orange-supporting-purple);
+  --coral-supporting-green: var(--orange-supporting-green);
+  --coral-success: var(--orange-success);
+  --coral-warning: var(--orange-warning);
+  --coral-error: var(--orange-error);
+  --coral-info: var(--orange-info);
+  --coral-text: var(--orange-text);
+  --coral-text-light: var(--orange-text-light);
+  --coral-background: var(--orange-background);
+  --coral-card-bg: var(--orange-card-bg);
+  --coral-border: var(--orange-border);
+}
+
+/* Global Styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Updated to match orange_hackathon_web */
+  background-color: var(--orange-background);
+  color: var(--orange-text);
+  line-height: 1.6; /* Added to match orange_hackathon_web */
+}
+
+/* Material Card Styling - Modernized Orange Style */
+.mat-mdc-card {
+  border-radius: 12px !important; /* Updated to match orange_hackathon_web */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important; /* Updated to match orange_hackathon_web */
+  border: 1px solid var(--orange-border);
+}
+
+/* Material Button Styling - Modernized Orange Style */
+.mat-mdc-raised-button.mat-primary {
+  background-color: var(--orange-primary) !important;
+  border-radius: 6px !important; /* Updated to match orange_hackathon_web */
+  font-weight: 600; /* Updated to match orange_hackathon_web */
+  padding: 0.75rem 1.5rem; /* Updated to match orange_hackathon_web */
+  transition: all 0.3s ease; /* Added for hover effects */
+  border: none !important; /* Added to match orange_hackathon_web */
+  font-size: 1rem !important; /* Added to match orange_hackathon_web */
+  display: inline-flex !important; /* Added to match orange_hackathon_web */
+  align-items: center !important; /* Added to match orange_hackathon_web */
+  gap: 0.5rem !important; /* Added to match orange_hackathon_web */
+}
+
+.mat-mdc-raised-button.mat-primary:hover {
+  background-color: var(--orange-primary-dark) !important;
+  transform: translateY(-2px); /* Added subtle lift effect on hover */
+}
+
+.mat-mdc-raised-button.mat-accent {
+  background-color: var(--orange-supporting-blue) !important;
+  border-radius: 6px !important; /* Updated to match orange_hackathon_web */
+  font-weight: 600; /* Updated to match orange_hackathon_web */
+  padding: 0.75rem 1.5rem; /* Updated to match orange_hackathon_web */
+  transition: all 0.3s ease; /* Added for hover effects */
+}
+
+/* Additional button color variations */
+.mat-mdc-raised-button.mat-success {
+  background-color: var(--orange-success) !important;
+  color: white !important;
+  border-radius: 6px !important;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  border: none !important;
+  font-size: 1rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.mat-mdc-raised-button.mat-success:hover {
+  background-color: #218838 !important;
+  transform: translateY(-2px);
+}
+
+.mat-mdc-raised-button.mat-info {
+  background-color: var(--orange-info) !important;
+  color: white !important;
+  border-radius: 6px !important;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  border: none !important;
+  font-size: 1rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.mat-mdc-raised-button.mat-info:hover {
+  background-color: #3a5ca9 !important;
+  transform: translateY(-2px);
+}
+
+.mat-mdc-raised-button.mat-warning {
+  background-color: var(--orange-warning) !important;
+  color: #212529 !important;
+  border-radius: 6px !important;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  border: none !important;
+  font-size: 1rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.mat-mdc-raised-button.mat-warning:hover {
+  background-color: #d6a600 !important;
+  transform: translateY(-2px);
+}
+
+.mat-mdc-raised-button.mat-danger {
+  background-color: var(--orange-error) !important;
+  color: white !important;
+  border-radius: 6px !important;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  border: none !important;
+  font-size: 1rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.mat-mdc-raised-button.mat-danger:hover {
+  background-color: #c82333 !important;
+  transform: translateY(-2px);
+}
+
+.mat-mdc-button.mat-primary {
+  color: var(--orange-primary) !important;
+  font-weight: 600; /* Updated to match orange_hackathon_web */
+  transition: all 0.3s ease; /* Added for hover effects */
+}
+
+.mat-mdc-button.mat-primary:hover {
+  color: var(--orange-primary-dark) !important;
+}
+
+.mat-mdc-button.mat-accent {
+  color: var(--orange-supporting-blue) !important;
+  font-weight: 600; /* Updated to match orange_hackathon_web */
+  transition: all 0.3s ease; /* Added for hover effects */
+}
+
+/* Button Styling - Using Boosted Orange defaults with minor customizations */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Add any specific button customizations here that aren't covered by Boosted variables */
+
+/* Material Form Field Styling - Modernized Orange Style */
+.mat-mdc-form-field {
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Updated to match orange_hackathon_web */
+  margin-bottom: 1.5rem; /* Added to match orange_hackathon_web spacing */
+}
+
+/* Updated to match orange_hackathon_web input styling */
+.mat-mdc-text-field-wrapper {
+  background-color: transparent !important;
+  padding: 0 !important;
+}
+
+.mat-mdc-form-field-focus-overlay {
+  background-color: transparent !important;
+}
+
+/* Remove default Material ripple effect */
+.mat-mdc-form-field.mat-focused .mat-mdc-form-field-ripple {
+  display: none !important;
+}
+
+/* Style the outline to match orange_hackathon_web 2px border */
+.mat-mdc-form-field-appearance-outline .mat-mdc-form-field-outline {
+  color: var(--orange-border);
+  opacity: 1 !important;
+}
+
+.mat-mdc-form-field-appearance-outline.mat-focused .mat-mdc-form-field-outline {
+  color: var(--orange-primary) !important;
+}
+
+/* Override Material's default outline styling */
+.mdc-notched-outline__leading,
+.mdc-notched-outline__notch,
+.mdc-notched-outline__trailing {
+  border-width: 2px !important;
+  border-color: var(--orange-border) !important;
+}
+
+/* Style focused state to match orange_hackathon_web */
+.mat-focused .mdc-notched-outline__leading,
+.mat-focused .mdc-notched-outline__notch,
+.mat-focused .mdc-notched-outline__trailing {
+  border-color: var(--orange-primary) !important;
+  border-width: 2px !important;
+}
+
+/* Set border radius to match orange_hackathon_web */
+.mdc-notched-outline__leading {
+  border-radius: 6px 0 0 6px !important;
+}
+
+.mdc-notched-outline__trailing {
+  border-radius: 0 6px 6px 0 !important;
+}
+
+.mat-mdc-form-field-appearance-outline .mat-mdc-form-field-infix {
+  padding: 0.75rem 0; /* Updated to match orange_hackathon_web */
+}
+
+/* Style the input text */
+.mat-mdc-input-element {
+  padding: 0.75rem !important;
+  font-size: 1rem !important;
+  transition: border-color 0.3s ease !important;
+  background-color: white !important; /* Added to match orange_hackathon_web */
+}
+
+.mat-mdc-form-field-label {
+  color: var(--orange-text-light);
+  font-weight: 600; /* Updated to match orange_hackathon_web */
+  margin-bottom: 0.5rem !important; /* Added to match orange_hackathon_web */
+  display: block !important; /* Added to match orange_hackathon_web */
+}
+
+/* Style select dropdown to match orange_hackathon_web */
+.mat-mdc-select-value, .mat-mdc-select-arrow {
+  color: var(--orange-text);
+  padding: 0.75rem 0 !important;
+}
+
+.mat-mdc-form-field.mat-mdc-form-field-type-mat-select .mat-mdc-text-field-wrapper {
+  background-color: white !important;
+}
+
+/* Style textarea to match orange_hackathon_web */
+textarea.mat-mdc-input-element {
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+  width: 100% !important;
+  padding: 0.75rem !important;
+  border: 2px solid var(--orange-border) !important;
+  border-radius: 6px !important;
+  font-size: 1rem !important;
+  transition: border-color 0.3s ease !important;
+  background-color: white !important;
+}
+
+textarea.mat-mdc-input-element:focus {
+  outline: none !important;
+  border-color: var(--orange-primary) !important;
+}
+
+/* Style select panel (dropdown) */
+.mat-mdc-select-panel {
+  border-radius: 6px !important;
+  border: 2px solid var(--orange-border) !important;
+  overflow: hidden !important;
+  background-color: white !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.mat-mdc-option {
+  padding: 0.75rem !important;
+  font-size: 1rem !important;
+}
+
+.mat-mdc-option.mat-selected:not(.mat-option-disabled) {
+  color: var(--orange-primary) !important;
+}
+
+.mat-mdc-option:hover:not(.mat-option-disabled) {
+  background-color: rgba(255, 107, 53, 0.05) !important;
+}
+
+/* Style checkbox to match orange_hackathon_web */
+.mat-mdc-checkbox {
+  margin-right: 1rem;
+  display: flex !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  font-size: 0.9rem !important;
+}
+
+.mdc-form-field {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.mdc-form-field > label {
+  margin-bottom: 0 !important;
+  padding-left: 0.5rem !important;
+  cursor: pointer !important;
+}
+
+.mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
+.mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background {
+  background-color: var(--orange-primary) !important;
+  border-color: var(--orange-primary) !important;
+}
+
+.mdc-checkbox .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
+  border-width: 2px !important;
+  border-color: var(--orange-border) !important;
+  border-radius: 3px !important;
+  width: 18px !important;
+  height: 18px !important;
+  margin-right: 0.5rem !important;
+  position: relative !important;
+  transition: all 0.3s ease !important;
+}
+
+.mdc-checkbox:hover .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
+  border-color: var(--orange-primary) !important;
+}
+
+.mdc-checkbox .mdc-checkbox__background::after {
+  content: '✓' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  color: white !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+}
+
+/* Style radio button to match orange_hackathon_web */
+.mat-mdc-radio-button {
+  margin-right: 1rem;
+  display: flex !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  font-size: 0.9rem !important;
+}
+
+.mdc-radio .mdc-radio__native-control:enabled:checked + .mdc-radio__background .mdc-radio__outer-circle {
+  border-color: var(--orange-primary) !important;
+}
+
+.mdc-radio .mdc-radio__native-control:enabled + .mdc-radio__background .mdc-radio__inner-circle {
+  background-color: var(--orange-primary) !important;
+}
+
+.mdc-radio .mdc-radio__native-control:enabled + .mdc-radio__background .mdc-radio__outer-circle {
+  border-width: 2px !important;
+  border-color: var(--orange-border) !important;
+  transition: all 0.3s ease !important;
+}
+
+.mdc-radio:hover .mdc-radio__native-control:enabled + .mdc-radio__background .mdc-radio__outer-circle {
+  border-color: var(--orange-primary) !important;
+}
+
+.mat-mdc-radio-button .mdc-radio {
+  margin-right: 0.5rem !important;
+}
+
+.mat-mdc-radio-button .mdc-form-field {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Style slide toggle to match orange_hackathon_web */
+.mat-mdc-slide-toggle {
+  --mdc-switch-selected-handle-color: var(--orange-primary) !important;
+  --mdc-switch-selected-track-color: rgba(255, 107, 53, 0.5) !important;
+  --mdc-switch-unselected-handle-color: white !important;
+  --mdc-switch-unselected-track-color: var(--orange-border) !important;
+  --mdc-switch-unselected-hover-track-color: var(--orange-border) !important;
+  --mdc-switch-selected-hover-track-color: rgba(255, 107, 53, 0.6) !important;
+}
+
+/* Style datepicker to match orange_hackathon_web */
+.mat-datepicker-toggle {
+  color: var(--orange-text-light) !important;
+}
+
+.mat-datepicker-toggle:hover {
+  color: var(--orange-primary) !important;
+}
+
+.mat-calendar-body-selected {
+  background-color: var(--orange-primary) !important;
+}
+
+.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  background-color: rgba(255, 107, 53, 0.3) !important;
+}
+
+.mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  border-color: var(--orange-primary) !important;
+}
+
+.mat-calendar-arrow {
+  border-top-color: var(--orange-primary) !important;
+}
+
+.mat-calendar-next-button,
+.mat-calendar-previous-button {
+  color: var(--orange-primary) !important;
+}
+
+.mat-datepicker-content {
+  border-radius: 6px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+  border: 2px solid var(--orange-border) !important;
+  background-color: white !important;
+}
+
+.mat-calendar {
+  background-color: white !important;
+}
+
+.mat-mdc-form-field-error {
+  color: var(--orange-error);
+  font-size: 0.875rem; /* Updated to match orange_hackathon_web */
+}
+
+/* Form Styling - Using Boosted Orange defaults with minor customizations */
+.form-control, .form-select {
+  transition: border-color 0.3s ease;
+}
+
+.form-label {
+  font-weight: 600;
+}
+
+/* Form Container Styling - Custom component */
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Material Table Styling - Modernized Orange Style */
+.mat-mdc-table {
+  width: 100%;
+  background-color: var(--orange-card-bg);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Updated to match orange_hackathon_web */
+  border-radius: 8px; /* Added to match orange_hackathon_web */
+  overflow: hidden; /* Added to ensure border-radius works with table */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Added to match orange_hackathon_web */
+}
+
+.mat-mdc-header-cell {
+  font-weight: 600; /* Updated to match orange_hackathon_web */
+  color: var(--orange-text);
+  background-color: #f8f9fa; /* Updated to match orange_hackathon_web */
+  font-size: 0.875rem;
+  padding: 0.75rem;
+}
+
+.mat-mdc-cell {
+  color: var(--orange-text);
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--orange-border);
+}
+
+.mat-mdc-row:hover {
+  background-color: rgba(255, 107, 53, 0.05); /* Updated to match new primary color */
+}
+
+.mat-mdc-paginator {
+  background-color: var(--orange-card-bg);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Updated to match orange_hackathon_web */
+}
+
+/* Table Styling - Using Boosted Orange defaults with minor customizations */
+.table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.table thead th {
+  font-weight: 600;
+  background-color: #f8f9fa;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(255, 107, 53, 0.05);
+}
+
+/* Custom Utility Classes - Only those not provided by Boosted */
+.text-bold {
+  font-weight: 600 !important;
+}
+
+/* Custom components from orange_hackathon_web */
+.subtitle {
+  color: var(--orange-text-light);
+  margin-bottom: 2rem;
+}
+
+.security-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--orange-success);
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+.security-warning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--orange-error);
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+/* Added container and card utilities from orange_hackathon_web */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.auth-container {
+  max-width: 450px;
+  margin: 3rem auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.service-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  border-color: var(--orange-primary);
+}
+
+/* Loading spinner */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 107, 53, 0.1);
+  border-top: 4px solid var(--orange-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Progress Bar - Boosted Orange Style */
+.mat-mdc-progress-bar {
+  --mdc-linear-progress-active-indicator-color: var(--orange-primary);
+  --mdc-linear-progress-track-color: rgba(255, 107, 53, 0.2);
+  border-radius: 4px;
+  height: 8px !important;
+  overflow: hidden;
+}
+
+/* Progress Spinner - Boosted Orange Style */
+.mat-mdc-progress-spinner {
+  --mdc-circular-progress-active-indicator-color: var(--orange-primary);
+}
+
+.mat-mdc-progress-spinner.mat-accent {
+  --mdc-circular-progress-active-indicator-color: var(--orange-supporting-blue);
+}
+
+.mat-mdc-progress-spinner.mat-warn {
+  --mdc-circular-progress-active-indicator-color: var(--orange-error);
+}
+
+/* Dialog - Boosted Orange Style */
+.mat-mdc-dialog-container {
+  --mdc-dialog-container-color: var(--orange-card-bg);
+  border-radius: 12px !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
+  overflow: hidden !important;
+  border: 2px solid var(--orange-border) !important;
+}
+
+.mat-mdc-dialog-title {
+  color: var(--orange-text) !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  padding: 1.5rem 1.5rem 0 !important;
+}
+
+.mat-mdc-dialog-content {
+  color: var(--orange-text) !important;
+  font-size: 1rem !important;
+  padding: 1.5rem !important;
+  max-height: 70vh !important;
+}
+
+.mat-mdc-dialog-actions {
+  padding: 0 1.5rem 1.5rem !important;
+  gap: 1rem !important;
+}
+
+/* Chips - Boosted Orange Style */
+.mat-mdc-chip {
+  --mdc-chip-elevated-container-color: rgba(255, 107, 53, 0.1);
+  --mdc-chip-with-trailing-icon-trailing-icon-color: var(--orange-text);
+  --mdc-chip-with-avatar-avatar-size: 24px;
+  border-radius: 16px !important;
+  height: 32px !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+}
+
+.mat-mdc-chip.mat-primary {
+  --mdc-chip-elevated-container-color: rgba(255, 107, 53, 0.1);
+  color: var(--orange-primary) !important;
+}
+
+.mat-mdc-chip.mat-accent {
+  --mdc-chip-elevated-container-color: rgba(75, 180, 230, 0.1);
+  color: var(--orange-supporting-blue) !important;
+}
+
+.mat-mdc-chip.mat-warn {
+  --mdc-chip-elevated-container-color: rgba(220, 53, 69, 0.1);
+  color: var(--orange-error) !important;
+}
+
+.mat-mdc-chip:hover {
+  --mdc-chip-elevated-container-color: rgba(255, 107, 53, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Expansion Panel - Boosted Orange Style */
+.mat-expansion-panel {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+  border: 2px solid var(--orange-border) !important;
+  margin-bottom: 1rem !important;
+  transition: all 0.3s ease !important;
+  overflow: hidden !important;
+}
+
+.mat-expansion-panel:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.mat-expansion-panel-header {
+  padding: 1.25rem !important;
+  height: auto !important;
+  min-height: 64px !important;
+}
+
+.mat-expansion-panel-header-title {
+  color: var(--orange-text) !important;
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+}
+
+.mat-expansion-panel-header-description {
+  color: var(--orange-text-light) !important;
+  font-size: 0.875rem !important;
+}
+
+.mat-expansion-panel-body {
+  padding: 0 1.25rem 1.25rem !important;
+}
+
+.mat-expansion-indicator::after {
+  color: var(--orange-primary) !important;
+  border-width: 0 2px 2px 0 !important;
+  padding: 3px !important;
+}

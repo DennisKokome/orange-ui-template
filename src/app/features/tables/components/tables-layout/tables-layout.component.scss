@@ -1,0 +1,38 @@
+.tables-container {
+  padding: 1.5rem 0;
+}
+
+.page-title {
+  color: var(--orange-primary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.page-description {
+  color: var(--orange-text-light);
+  margin-bottom: 1.5rem;
+}
+
+.orange-tabs {
+  border-bottom: 2px solid var(--orange-border);
+
+  ::ng-deep {
+    .mdc-tab {
+      min-width: 120px;
+
+      &.mdc-tab--active {
+        .mdc-tab__text-label {
+          color: var(--orange-primary);
+        }
+      }
+
+      .mdc-tab-indicator--active .mdc-tab-indicator__content {
+        border-color: var(--orange-primary);
+      }
+    }
+  }
+}
+
+.tab-content {
+  padding: 1rem 0;
+}

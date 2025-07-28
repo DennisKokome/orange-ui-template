@@ -1,0 +1,144 @@
+<!-- Header -->
+<header class="header">
+  <nav class="navbar navbar-expand supra">
+    <div class="container">
+      <div class="navbar-brand">
+        <img src="assets/images/logo.svg" alt="Orange Logo" class="orange-logo-img desktop-logo">
+        <img src="assets/images/small_logo.svg" alt="Orange Logo" class="orange-logo-img mobile-logo">
+        <span class="ms-2">Orange Botswana</span>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <a href="#" class="nav-link">Help</a>
+        <a href="#" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Main Content -->
+<main class="main">
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <h1>Welcome</h1>
+        <p>Sign in to your account</p>
+      </div>
+
+      <!-- Email Step -->
+      <div *ngIf="!isEmailSubmitted" class="login-form">
+        <form [formGroup]="emailForm" (ngSubmit)="onEmailSubmit()">
+          <div class="mb-3">
+            <label for="emailInput" class="form-label">Email</label>
+            <div class="input-group has-validation">
+              <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+              <input
+                type="email"
+                class="form-control"
+                id="emailInput"
+                formControlName="email"
+                placeholder="Enter your email"
+                autocomplete="email"
+                [ngClass]="{'is-invalid': emailForm.get('email')?.invalid && emailForm.get('email')?.touched}">
+              <div *ngIf="emailForm.get('email')?.hasError('required') && emailForm.get('email')?.touched" class="invalid-feedback">
+                Email is required
+              </div>
+              <div *ngIf="emailForm.get('email')?.hasError('email') && emailForm.get('email')?.touched" class="invalid-feedback">
+                Please enter a valid email address
+              </div>
+            </div>
+          </div>
+
+          <div class="d-grid">
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg"
+              [disabled]="emailForm.invalid || isLoading">
+              <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+              <span *ngIf="!isLoading">Continue</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- OTP Step -->
+      <div *ngIf="isEmailSubmitted" class="login-form">
+        <div class="otp-info mb-4">
+          <p>We've sent a verification code to:</p>
+          <p class="email-display fw-bold">{{ emailForm.get('email')?.value }}</p>
+          <button type="button" class="btn btn-link p-0 text-primary" (click)="goBackToEmail()">
+            <i class="bi bi-arrow-left me-1"></i> Change email
+          </button>
+        </div>
+
+        <form [formGroup]="otpForm" (ngSubmit)="onOtpSubmit()">
+          <div class="mb-3">
+            <label for="otpInput" class="form-label">Verification Code</label>
+            <div class="input-group has-validation">
+              <span class="input-group-text"><i class="bi bi-lock"></i></span>
+              <input
+                type="text"
+                class="form-control"
+                id="otpInput"
+                formControlName="otp"
+                placeholder="Enter 6-digit code"
+                maxlength="6"
+                autocomplete="one-time-code"
+                [ngClass]="{'is-invalid': otpForm.get('otp')?.invalid && otpForm.get('otp')?.touched}">
+              <div *ngIf="otpForm.get('otp')?.hasError('required') && otpForm.get('otp')?.touched" class="invalid-feedback">
+                Verification code is required
+              </div>
+              <div *ngIf="(otpForm.get('otp')?.hasError('minlength') || otpForm.get('otp')?.hasError('maxlength')) && otpForm.get('otp')?.touched" class="invalid-feedback">
+                Verification code must be 6 digits
+              </div>
+            </div>
+          </div>
+
+          <div class="d-grid">
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg"
+              [disabled]="otpForm.invalid || isLoading">
+              <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+              <span *ngIf="!isLoading">Sign In</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer o-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4 mb-4 mb-md-0">
+        <h5 class="o-footer-heading">Support</h5>
+        <ul class="o-footer-list">
+          <li><a href="#" class="o-footer-link">Help Center</a></li>
+          <li><a href="#" class="o-footer-link">Contact Us</a></li>
+          <li><a href="#" class="o-footer-link">Live Chat</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-4 mb-4 mb-md-0">
+        <h5 class="o-footer-heading">Legal</h5>
+        <ul class="o-footer-list">
+          <li><a href="#" class="o-footer-link">Privacy Policy</a></li>
+          <li><a href="#" class="o-footer-link">Terms of Service</a></li>
+          <li><a href="#" class="o-footer-link">Security</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-4">
+        <h5 class="o-footer-heading">Company</h5>
+        <ul class="o-footer-list">
+          <li><a href="#" class="o-footer-link">About Us</a></li>
+          <li><a href="#" class="o-footer-link">Careers</a></li>
+          <li><a href="#" class="o-footer-link">News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="o-footer-bottom mt-4 pt-3 border-top">
+      <p class="mb-0">&copy; 2025 Orange Botswana. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

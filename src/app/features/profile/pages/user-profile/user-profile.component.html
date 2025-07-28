@@ -1,0 +1,345 @@
+<div class="container-fluid">
+  <div class="row page-title">
+    <div class="col-12">
+      <h1>User Profile</h1>
+      <p class="text-muted">Manage your personal information, address, preferences, and security settings</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 mb-4">
+      <!-- Profile Card -->
+      <mat-card class="profile-card">
+        <div class="profile-header">
+          <div class="profile-avatar">
+            <div class="avatar-icon-container">
+              <mat-icon class="avatar-icon">account_circle</mat-icon>
+            </div>
+            <button mat-mini-fab color="primary" class="avatar-edit-button">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+          <h2 class="profile-name">{{ personalInfoForm.get('firstName')?.value }} {{ personalInfoForm.get('lastName')?.value }}</h2>
+          <p class="profile-email">{{ personalInfoForm.get('email')?.value }}</p>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="profile-stats">
+          <div class="stat-item">
+            <span class="stat-label">Member Since</span>
+            <span class="stat-value">Jan 2023</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Last Login</span>
+            <span class="stat-value">Today</span>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="profile-actions">
+          <button mat-stroked-button color="primary" class="action-button">
+            <mat-icon>cloud_download</mat-icon>
+            Download Data
+          </button>
+          <button mat-stroked-button color="warn" class="action-button">
+            <mat-icon>delete</mat-icon>
+            Delete Account
+          </button>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="col-md-9">
+      <!-- Profile Tabs -->
+      <mat-card>
+        <mat-card-content>
+          <mat-tab-group animationDuration="0ms">
+            <!-- Personal Information Tab -->
+            <mat-tab label="Personal Information">
+              <div class="tab-content">
+                <form [formGroup]="personalInfoForm" (ngSubmit)="onPersonalInfoSubmit()">
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>First Name</mat-label>
+                        <input matInput formControlName="firstName" placeholder="Enter first name">
+                        <mat-error *ngIf="personalInfoForm.get('firstName')?.hasError('required')">
+                          First name is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput formControlName="lastName" placeholder="Enter last name">
+                        <mat-error *ngIf="personalInfoForm.get('lastName')?.hasError('required')">
+                          Last name is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email" placeholder="Enter email" type="email">
+                        <mat-error *ngIf="personalInfoForm.get('email')?.hasError('required')">
+                          Email is required
+                        </mat-error>
+                        <mat-error *ngIf="personalInfoForm.get('email')?.hasError('email')">
+                          Please enter a valid email address
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Phone</mat-label>
+                        <input matInput formControlName="phone" placeholder="Enter phone number">
+                        <mat-hint>8-digit number without spaces or dashes</mat-hint>
+                        <mat-error *ngIf="personalInfoForm.get('phone')?.hasError('pattern')">
+                          Please enter a valid 8-digit phone number
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Birth Date</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="birthDate" placeholder="Choose a date">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error *ngIf="personalInfoForm.get('birthDate')?.hasError('required')">
+                          Birth date is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <div class="gender-field">
+                        <label class="gender-label">Gender</label>
+                        <mat-radio-group formControlName="gender" class="radio-group">
+                          <mat-radio-button *ngFor="let option of genderOptions" [value]="option.value" class="radio-button">
+                            {{option.label}}
+                          </mat-radio-button>
+                        </mat-radio-group>
+                        <mat-error *ngIf="personalInfoForm.get('gender')?.hasError('required') && personalInfoForm.get('gender')?.touched" class="radio-error">
+                          Please select a gender
+                        </mat-error>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-12 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Bio</mat-label>
+                        <textarea matInput formControlName="bio" placeholder="Tell us about yourself" rows="3"></textarea>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="form-actions">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="personalInfoForm.invalid">
+                      Save Changes
+                    </button>
+                    <button mat-button type="button">
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </mat-tab>
+
+            <!-- Address Tab -->
+            <mat-tab label="Address">
+              <div class="tab-content">
+                <form [formGroup]="addressForm" (ngSubmit)="onAddressSubmit()">
+                  <div class="row">
+                    <div class="col-12 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Address</mat-label>
+                        <textarea matInput formControlName="address" placeholder="Enter address" rows="2"></textarea>
+                        <mat-error *ngIf="addressForm.get('address')?.hasError('required')">
+                          Address is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>City</mat-label>
+                        <input matInput formControlName="city" placeholder="Enter city">
+                        <mat-error *ngIf="addressForm.get('city')?.hasError('required')">
+                          City is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>State/Province</mat-label>
+                        <input matInput formControlName="state" placeholder="Enter state or province">
+                        <mat-error *ngIf="addressForm.get('state')?.hasError('required')">
+                          State/Province is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Postal Code</mat-label>
+                        <input matInput formControlName="postalCode" placeholder="Enter postal code">
+                        <mat-error *ngIf="addressForm.get('postalCode')?.hasError('required')">
+                          Postal code is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Country</mat-label>
+                        <input matInput formControlName="country" placeholder="Enter country">
+                        <mat-error *ngIf="addressForm.get('country')?.hasError('required')">
+                          Country is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="form-actions">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="addressForm.invalid">
+                      Save Changes
+                    </button>
+                    <button mat-button type="button">
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </mat-tab>
+
+            <!-- Preferences Tab -->
+            <mat-tab label="Preferences">
+              <div class="tab-content">
+                <form [formGroup]="preferencesForm" (ngSubmit)="onPreferencesSubmit()">
+                  <div class="preferences-section">
+                    <h3>Communication Preferences</h3>
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <mat-checkbox formControlName="receiveEmails" color="primary" class="preference-checkbox">
+                          Receive email notifications
+                        </mat-checkbox>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <mat-checkbox formControlName="receiveNotifications" color="primary" class="preference-checkbox">
+                          Receive push notifications
+                        </mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+
+                  <mat-divider class="my-4"></mat-divider>
+
+                  <div class="preferences-section">
+                    <h3>Display Preferences</h3>
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <mat-form-field appearance="outline" class="w-100">
+                          <mat-label>Theme</mat-label>
+                          <mat-select formControlName="theme">
+                            <mat-option *ngFor="let option of themeOptions" [value]="option.value">
+                              {{option.label}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <mat-form-field appearance="outline" class="w-100">
+                          <mat-label>Language</mat-label>
+                          <mat-select formControlName="language">
+                            <mat-option *ngFor="let option of languageOptions" [value]="option.value">
+                              {{option.label}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-actions">
+                    <button mat-raised-button color="primary" type="submit">
+                      Save Changes
+                    </button>
+                    <button mat-button type="button">
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </mat-tab>
+
+            <!-- Security Tab -->
+            <mat-tab label="Security">
+              <div class="tab-content">
+                <form [formGroup]="securityForm" (ngSubmit)="onSecuritySubmit()">
+                  <div class="security-section">
+                    <h3>Change Password</h3>
+                    <div class="row">
+                      <div class="col-12 mb-3">
+                        <mat-form-field appearance="outline" class="w-100">
+                          <mat-label>Current Password</mat-label>
+                          <input matInput formControlName="currentPassword" type="password" placeholder="Enter current password">
+                          <mat-error *ngIf="securityForm.get('currentPassword')?.hasError('required')">
+                            Current password is required
+                          </mat-error>
+                        </mat-form-field>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <mat-form-field appearance="outline" class="w-100">
+                          <mat-label>New Password</mat-label>
+                          <input matInput formControlName="newPassword" type="password" placeholder="Enter new password">
+                          <mat-error *ngIf="securityForm.get('newPassword')?.hasError('required')">
+                            New password is required
+                          </mat-error>
+                          <mat-error *ngIf="securityForm.get('newPassword')?.hasError('minlength')">
+                            Password must be at least 8 characters
+                          </mat-error>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <mat-form-field appearance="outline" class="w-100">
+                          <mat-label>Confirm Password</mat-label>
+                          <input matInput formControlName="confirmPassword" type="password" placeholder="Confirm new password">
+                          <mat-error *ngIf="securityForm.get('confirmPassword')?.hasError('required')">
+                            Please confirm your password
+                          </mat-error>
+                          <mat-error *ngIf="securityForm.hasError('passwordMismatch')">
+                            Passwords do not match
+                          </mat-error>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-actions">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="securityForm.invalid">
+                      Update Password
+                    </button>
+                    <button mat-button type="button">
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

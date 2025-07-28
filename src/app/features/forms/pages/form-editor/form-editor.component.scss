@@ -1,0 +1,128 @@
+// Editor Toolbar Styles
+.editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border: 2px solid var(--orange-border);
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  margin-bottom: 0;
+
+  &.simplified {
+    border-radius: 6px;
+    border-bottom: 2px solid var(--orange-border);
+    margin-bottom: 0.5rem;
+  }
+
+  .toolbar-group {
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--orange-border);
+    padding-right: 0.5rem;
+    margin-right: 0.5rem;
+
+    &:last-child {
+      border-right: none;
+      padding-right: 0;
+      margin-right: 0;
+    }
+  }
+
+  .font-size-select {
+    width: 80px;
+    margin: 0;
+  }
+}
+
+// Editor Content Area Styles
+.editor-content-wrapper {
+  position: relative;
+  border: 2px solid var(--orange-border);
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  overflow: hidden;
+}
+
+.editor-content {
+  width: 100%;
+  min-height: 200px;
+  padding: 1rem;
+  border: none;
+  resize: vertical;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--orange-text);
+  background-color: white;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// Preview Section Styles
+.preview-section {
+  margin-top: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--orange-text);
+}
+
+.preview-content {
+  padding: 1rem;
+  border: 2px solid var(--orange-border);
+  border-radius: 6px;
+  min-height: 100px;
+  background-color: white;
+}
+
+// Form with Editor Styles
+.editor-form {
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .editor-textarea {
+    width: 100%;
+    min-height: 150px;
+    border: 2px solid var(--orange-border);
+    border-radius: 0 0 6px 6px;
+    border-top: none;
+    padding: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--orange-text);
+    background-color: white;
+
+    &:focus {
+      outline: none;
+      border-color: var(--orange-primary);
+    }
+  }
+
+  .form-actions {
+    display: flex;
+    margin-top: 2rem;
+  }
+}
+
+// Utility Classes
+.full-width {
+  width: 100%;
+}
+
+.ms-2 {
+  margin-left: 0.5rem;
+}
+
+.my-4 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}

@@ -1,0 +1,195 @@
+<div class="container-fluid">
+  <div class="row page-title">
+    <div class="col-12">
+      <h1>Form with Toast Notifications</h1>
+      <p class="text-muted">Form submissions with toast notifications using Angular Material Snackbar and Boosted Orange</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Basic Form with Success Toast -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Basic Form with Toast</mat-card-title>
+          <mat-card-subtitle>Simple form with success/error toast notifications</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="basicForm" (ngSubmit)="onBasicFormSubmit()">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="name" placeholder="Enter your name">
+              <mat-error *ngIf="basicForm.get('name')?.hasError('required')">
+                Name is required
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" placeholder="Enter your email" type="email">
+              <mat-error *ngIf="basicForm.get('email')?.hasError('required')">
+                Email is required
+              </mat-error>
+              <mat-error *ngIf="basicForm.get('email')?.hasError('email')">
+                Please enter a valid email address
+              </mat-error>
+            </mat-form-field>
+
+            <div class="form-actions">
+              <button mat-raised-button color="primary" type="submit">Submit</button>
+              <button mat-button type="button" (click)="basicForm.reset()">Reset</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Form with Different Toast Positions -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Toast Positions</mat-card-title>
+          <mat-card-subtitle>Control the position and duration of toast notifications</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="positionForm" (ngSubmit)="onPositionFormSubmit()">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Message</mat-label>
+              <input matInput formControlName="message" placeholder="Enter toast message">
+              <mat-error *ngIf="positionForm.get('message')?.hasError('required')">
+                Message is required
+              </mat-error>
+            </mat-form-field>
+
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>Position</mat-label>
+                  <mat-select formControlName="position">
+                    <mat-option *ngFor="let pos of positions" [value]="pos.value">
+                      {{pos.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>Duration</mat-label>
+                  <mat-select formControlName="duration">
+                    <mat-option *ngFor="let dur of durations" [value]="dur.value">
+                      {{dur.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button mat-raised-button color="primary" type="submit" [disabled]="positionForm.invalid">Show Toast</button>
+              <button mat-button type="button" (click)="positionForm.reset({position: 'top-right', duration: 5000})">Reset</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Form with Different Toast Types -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Toast Types</mat-card-title>
+          <mat-card-subtitle>Different types of toast notifications</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="typeForm" (ngSubmit)="onTypeFormSubmit()">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Message</mat-label>
+              <input matInput formControlName="message" placeholder="Enter toast message">
+              <mat-error *ngIf="typeForm.get('message')?.hasError('required')">
+                Message is required
+              </mat-error>
+            </mat-form-field>
+
+            <div class="toast-types">
+              <div class="toast-type-option">
+                <button mat-raised-button
+                        type="button"
+                        color="primary"
+                        (click)="typeForm.patchValue({type: 'success'}); onTypeFormSubmit()"
+                        [disabled]="!typeForm.get('message')?.value">
+                  <mat-icon>check_circle</mat-icon> Success
+                </button>
+              </div>
+              <div class="toast-type-option">
+                <button mat-raised-button
+                        type="button"
+                        color="warn"
+                        (click)="typeForm.patchValue({type: 'error'}); onTypeFormSubmit()"
+                        [disabled]="!typeForm.get('message')?.value">
+                  <mat-icon>error</mat-icon> Error
+                </button>
+              </div>
+              <div class="toast-type-option">
+                <button mat-raised-button
+                        type="button"
+                        color="accent"
+                        (click)="typeForm.patchValue({type: 'info'}); onTypeFormSubmit()"
+                        [disabled]="!typeForm.get('message')?.value">
+                  <mat-icon>info</mat-icon> Info
+                </button>
+              </div>
+              <div class="toast-type-option">
+                <button mat-raised-button
+                        type="button"
+                        (click)="typeForm.patchValue({type: 'warning'}); onTypeFormSubmit()"
+                        [disabled]="!typeForm.get('message')?.value">
+                  <mat-icon>warning</mat-icon> Warning
+                </button>
+              </div>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Form with Custom Toast -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Custom Toast</mat-card-title>
+          <mat-card-subtitle>Customize your toast notifications</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="customForm" (ngSubmit)="onCustomFormSubmit()">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Title</mat-label>
+              <input matInput formControlName="title" placeholder="Enter toast title">
+              <mat-error *ngIf="customForm.get('title')?.hasError('required')">
+                Title is required
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Message</mat-label>
+              <textarea matInput formControlName="message" placeholder="Enter toast message" rows="3"></textarea>
+              <mat-error *ngIf="customForm.get('message')?.hasError('required')">
+                Message is required
+              </mat-error>
+            </mat-form-field>
+
+            <div class="form-checkbox mb-3">
+              <mat-checkbox formControlName="showAction" color="primary">
+                Show dismiss button (persistent toast)
+              </mat-checkbox>
+            </div>
+
+            <div class="form-actions">
+              <button mat-raised-button color="primary" type="submit" [disabled]="customForm.invalid">Show Custom Toast</button>
+              <button mat-button type="button" (click)="customForm.reset({showAction: true})">Reset</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

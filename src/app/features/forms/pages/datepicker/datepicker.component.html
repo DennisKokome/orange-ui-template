@@ -1,0 +1,129 @@
+<div class="container-fluid">
+  <div class="row page-title">
+    <div class="col-12">
+      <h1>Datepicker</h1>
+      <p class="text-muted">Date selection components using Angular Material and Boosted Orange</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Basic Datepicker -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Basic Datepicker</mat-card-title>
+          <mat-card-subtitle>Simple date selection</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" [formControl]="basicDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <div class="mt-3">
+            <p>Selected date: <strong>{{ basicDate.value | date }}</strong></p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Date Range Picker -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Date Range Picker</mat-card-title>
+          <mat-card-subtitle>Select a range of dates</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [formGroup]="dateRange" [rangePicker]="rangePicker">
+              <input matStartDate formControlName="start" placeholder="Start date">
+              <input matEndDate formControlName="end" placeholder="End date">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="rangePicker"></mat-datepicker-toggle>
+            <mat-date-range-picker #rangePicker></mat-date-range-picker>
+          </mat-form-field>
+          <div class="mt-3">
+            <p *ngIf="dateRange.get('start')?.value">Start date: <strong>{{ dateRange.get('start')?.value | date }}</strong></p>
+            <p *ngIf="dateRange.get('end')?.value">End date: <strong>{{ dateRange.get('end')?.value | date }}</strong></p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Min/Max Date Picker -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Min/Max Date Picker</mat-card-title>
+          <mat-card-subtitle>Date selection with min and max constraints</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="minMaxPicker" [min]="minDate" [max]="maxDate" [formControl]="dateWithMinMax">
+            <mat-hint>Limited to next 3 months</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="minMaxPicker"></mat-datepicker-toggle>
+            <mat-datepicker #minMaxPicker></mat-datepicker>
+          </mat-form-field>
+          <div class="mt-3">
+            <p>Selected date: <strong>{{ dateWithMinMax.value | date }}</strong></p>
+            <p>Min date: <strong>{{ minDate | date }}</strong></p>
+            <p>Max date: <strong>{{ maxDate | date }}</strong></p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Date with Filter -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Date with Filter</mat-card-title>
+          <mat-card-subtitle>Date selection with filtered dates (weekends disabled)</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="filterPicker" [formControl]="dateWithFilter" [matDatepickerFilter]="weekendFilter">
+            <mat-hint>Weekends are disabled</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="filterPicker"></mat-datepicker-toggle>
+            <mat-datepicker #filterPicker></mat-datepicker>
+          </mat-form-field>
+          <div class="mt-3">
+            <p>Selected date: <strong>{{ dateWithFilter.value | date }}</strong></p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Date with Custom Format -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Date with Custom Format</mat-card-title>
+          <mat-card-subtitle>Date selection with custom display format</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="formatPicker" [formControl]="dateWithFormat">
+            <mat-datepicker-toggle matIconSuffix [for]="formatPicker"></mat-datepicker-toggle>
+            <mat-datepicker #formatPicker></mat-datepicker>
+          </mat-form-field>
+          <div class="mt-3">
+            <p>Default format: <strong>{{ dateWithFormat.value | date }}</strong></p>
+            <p>Short format: <strong>{{ dateWithFormat.value | date:'shortDate' }}</strong></p>
+            <p>Medium format: <strong>{{ dateWithFormat.value | date:'mediumDate' }}</strong></p>
+            <p>Long format: <strong>{{ dateWithFormat.value | date:'longDate' }}</strong></p>
+            <p>Custom format: <strong>{{ dateWithFormat.value | date:'EEEE, MMMM d, y' }}</strong></p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

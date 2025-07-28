@@ -1,0 +1,73 @@
+// Page title styling
+.page-title {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--orange-border);
+
+  h1 {
+    color: var(--orange-text);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+}
+
+// Form field styling
+.full-width {
+  width: 100%;
+}
+
+// User option styling in autocomplete
+.user-option {
+  display: flex;
+  flex-direction: column;
+
+  span {
+    font-weight: 500;
+  }
+
+  small {
+    font-size: 0.8rem;
+  }
+}
+
+// Selected user info styling
+.selected-user {
+  padding: 1rem;
+  background-color: rgba(var(--orange-primary-rgb), 0.05);
+  border-radius: 8px;
+
+  p {
+    margin-bottom: 0.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Material card styling
+mat-card {
+  height: 100%;
+
+  mat-card-header {
+    margin-bottom: 1rem;
+  }
+
+  mat-card-content {
+    padding: 0 1rem 1rem 1rem;
+  }
+}
+
+// Bootstrap spacing utilities
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}

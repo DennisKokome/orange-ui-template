@@ -1,0 +1,84 @@
+// Page title styling
+.page-title {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--orange-border);
+
+  h1 {
+    color: var(--orange-text);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+}
+
+// Checkbox section styling
+.checkbox-section {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  mat-checkbox {
+    margin-bottom: 0.5rem;
+  }
+
+  mat-error {
+    font-size: 0.8rem;
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Section title styling
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--orange-text);
+}
+
+// Material card styling
+mat-card {
+  height: 100%;
+
+  mat-card-header {
+    margin-bottom: 1rem;
+  }
+
+  mat-card-content {
+    padding: 0 1rem 1rem 1rem;
+  }
+}
+
+// Form values display
+pre {
+  background-color: rgba(var(--orange-primary-rgb), 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  overflow: auto;
+  max-height: 150px;
+}
+
+// Bootstrap spacing utilities
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.my-3 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.my-4 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}

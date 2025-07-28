@@ -1,0 +1,208 @@
+<div class="container-fluid">
+  <div class="row page-title">
+    <div class="col-12">
+      <h1>Buttons</h1>
+      <p class="text-muted">Button elements using Angular Material and Boosted Orange</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Basic Buttons -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Basic Buttons</mat-card-title>
+          <mat-card-subtitle>Standard button variants</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="button-row">
+            <button mat-button color="primary">Basic</button>
+            <button mat-button color="accent">Accent</button>
+            <button mat-button color="warn">Warn</button>
+            <button mat-button disabled>Disabled</button>
+          </div>
+
+          <mat-divider class="my-4"></mat-divider>
+
+          <div class="button-row">
+            <button mat-raised-button color="primary">Primary</button>
+            <button mat-raised-button color="accent">Accent</button>
+            <button mat-raised-button color="warn">Warn</button>
+            <button mat-raised-button disabled>Disabled</button>
+          </div>
+
+          <mat-divider class="my-4"></mat-divider>
+
+          <div class="button-row">
+            <button mat-stroked-button color="primary">Stroked</button>
+            <button mat-stroked-button color="accent">Accent</button>
+            <button mat-stroked-button color="warn">Warn</button>
+            <button mat-stroked-button disabled>Disabled</button>
+          </div>
+
+          <mat-divider class="my-4"></mat-divider>
+
+          <div class="button-row">
+            <button mat-flat-button color="primary">Flat</button>
+            <button mat-flat-button color="accent">Accent</button>
+            <button mat-flat-button color="warn">Warn</button>
+            <button mat-flat-button disabled>Disabled</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Icon Buttons -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Icon Buttons</mat-card-title>
+          <mat-card-subtitle>Buttons with icons</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="button-row">
+            <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+              <mat-icon>home</mat-icon>
+            </button>
+            <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+              <mat-icon>menu</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+              <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
+              <mat-icon>open_in_new</mat-icon>
+            </button>
+          </div>
+
+          <mat-divider class="my-4"></mat-divider>
+
+          <div class="button-row">
+            <button mat-raised-button color="primary">
+              <mat-icon>save</mat-icon>
+              Save
+            </button>
+            <button mat-raised-button color="accent">
+              <mat-icon>edit</mat-icon>
+              Edit
+            </button>
+            <button mat-raised-button color="warn">
+              <mat-icon>delete</mat-icon>
+              Delete
+            </button>
+          </div>
+
+          <mat-divider class="my-4"></mat-divider>
+
+          <div class="button-row">
+            <button mat-stroked-button color="primary">
+              <mat-icon>cloud_upload</mat-icon>
+              Upload
+            </button>
+            <button mat-stroked-button color="accent">
+              <mat-icon>cloud_download</mat-icon>
+              Download
+            </button>
+            <button mat-stroked-button color="warn">
+              <mat-icon>share</mat-icon>
+              Share
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Button Toggle -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Button Toggle</mat-card-title>
+          <mat-card-subtitle>Toggle buttons and button groups</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <h3 class="section-title">Single Toggle</h3>
+          <mat-button-toggle-group name="alignment" [(ngModel)]="selectedValue">
+            <mat-button-toggle value="left">
+              <mat-icon>format_align_left</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle value="center">
+              <mat-icon>format_align_center</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle value="right">
+              <mat-icon>format_align_right</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle value="justify">
+              <mat-icon>format_align_justify</mat-icon>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+
+          <div class="mt-3">
+            <p>Selected value: <strong>{{ selectedValue }}</strong></p>
+          </div>
+
+          <mat-divider class="my-4"></mat-divider>
+
+          <h3 class="section-title">Multiple Toggle</h3>
+          <mat-button-toggle-group multiple>
+            <mat-button-toggle value="bold">
+              <mat-icon>format_bold</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle value="italic">
+              <mat-icon>format_italic</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle value="underline">
+              <mat-icon>format_underline</mat-icon>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Button States -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Button States</mat-card-title>
+          <mat-card-subtitle>Disabled and enabled states</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="button-row">
+            <button mat-raised-button color="primary" [disabled]="isDisabled">
+              Primary Button
+            </button>
+            <button mat-raised-button color="accent" [disabled]="isDisabled">
+              Accent Button
+            </button>
+            <button mat-raised-button color="warn" [disabled]="isDisabled">
+              Warn Button
+            </button>
+          </div>
+
+          <div class="mt-3">
+            <button mat-stroked-button (click)="toggleDisabled()">
+              {{ isDisabled ? 'Enable' : 'Disable' }} Buttons
+            </button>
+          </div>
+
+          <mat-divider class="my-4"></mat-divider>
+
+          <h3 class="section-title">Tooltip Buttons</h3>
+          <div class="button-row">
+            <button mat-raised-button color="primary" matTooltip="Save your changes">
+              <mat-icon>save</mat-icon>
+              Save
+            </button>
+            <button mat-raised-button color="accent" matTooltip="Edit this item">
+              <mat-icon>edit</mat-icon>
+              Edit
+            </button>
+            <button mat-raised-button color="warn" matTooltip="Delete this item permanently">
+              <mat-icon>delete</mat-icon>
+              Delete
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

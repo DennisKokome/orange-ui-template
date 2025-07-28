@@ -1,0 +1,69 @@
+// Page title styling
+.page-title {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--orange-border);
+
+  h1 {
+    color: var(--orange-text);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+}
+
+// Button row styling
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  button {
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Section title styling
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--orange-text);
+}
+
+// Material card styling
+mat-card {
+  height: 100%;
+
+  mat-card-header {
+    margin-bottom: 1rem;
+  }
+
+  mat-card-content {
+    padding: 0 1rem 1rem 1rem;
+  }
+}
+
+// Bootstrap spacing utilities
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.my-4 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+// Button toggle group styling
+mat-button-toggle-group {
+  margin-bottom: 1rem;
+}

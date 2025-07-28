@@ -1,0 +1,114 @@
+.infinite-scroll-table-container {
+  .card {
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--orange-border);
+  }
+
+  .card-title {
+    color: var(--orange-primary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-subtitle {
+    color: var(--orange-text-light);
+  }
+
+  .filters-container {
+    background-color: rgba(0, 0, 0, 0.02);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--orange-border);
+  }
+
+  .table-container {
+    max-height: 600px;
+    overflow-y: auto;
+    position: relative;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--orange-primary-light);
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--orange-primary);
+    }
+  }
+
+  .orange-table {
+    width: 100%;
+
+    .mat-mdc-header-cell {
+      background-color: var(--orange-primary);
+      color: white;
+      font-weight: 600;
+      padding: 1rem 0.75rem;
+    }
+
+    .mat-mdc-cell {
+      padding: 0.75rem;
+    }
+
+    .mat-mdc-row:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    .mat-mdc-row:hover {
+      background-color: rgba(255, 107, 53, 0.05);
+    }
+
+    .badge {
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 0.8rem;
+    }
+  }
+
+  .rating {
+    display: flex;
+    align-items: center;
+
+    .star {
+      color: #d3d3d3;
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+
+      &.filled {
+        color: #ffc107;
+      }
+    }
+  }
+
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+
+    p {
+      margin-top: 1rem;
+      color: var(--orange-text-light);
+    }
+  }
+
+  .end-message {
+    text-align: center;
+    padding: 1.5rem 0;
+    color: var(--orange-text-light);
+    font-style: italic;
+  }
+}

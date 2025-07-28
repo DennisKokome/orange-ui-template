@@ -1,0 +1,543 @@
+<div class="container-fluid">
+  <div class="row page-title">
+    <div class="col-12">
+      <h1>Form Layouts</h1>
+      <p class="text-muted">Different form layout examples using Angular Material and Boosted Orange</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Basic Form -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Basic Form</h5>
+          <p class="card-subtitle">Standard form layout with stacked fields</p>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="basicForm" (ngSubmit)="onBasicFormSubmit()">
+            <div class="mb-3">
+              <label for="firstName" class="form-label">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                formControlName="firstName"
+                placeholder="Enter first name"
+                [ngClass]="{'is-invalid': basicForm.get('firstName')?.invalid && basicForm.get('firstName')?.touched}">
+              <div *ngIf="basicForm.get('firstName')?.hasError('required') && basicForm.get('firstName')?.touched" class="invalid-feedback">
+                First name is required
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                formControlName="lastName"
+                placeholder="Enter last name"
+                [ngClass]="{'is-invalid': basicForm.get('lastName')?.invalid && basicForm.get('lastName')?.touched}">
+              <div *ngIf="basicForm.get('lastName')?.hasError('required') && basicForm.get('lastName')?.touched" class="invalid-feedback">
+                Last name is required
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                formControlName="email"
+                placeholder="Enter email"
+                [ngClass]="{'is-invalid': basicForm.get('email')?.invalid && basicForm.get('email')?.touched}">
+              <div *ngIf="basicForm.get('email')?.hasError('required') && basicForm.get('email')?.touched" class="invalid-feedback">
+                Email is required
+              </div>
+              <div *ngIf="basicForm.get('email')?.hasError('email') && basicForm.get('email')?.touched" class="invalid-feedback">
+                Please enter a valid email address
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone</label>
+              <input
+                type="text"
+                class="form-control"
+                id="phone"
+                formControlName="phone"
+                placeholder="Enter phone number">
+            </div>
+
+            <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <textarea
+                class="form-control"
+                id="address"
+                formControlName="address"
+                placeholder="Enter address"
+                rows="3"></textarea>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button class="btn btn-primary" type="submit" [disabled]="basicForm.invalid">Submit</button>
+              <button class="btn btn-secondary" type="button">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid Form -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Grid Form</h5>
+          <p class="card-subtitle">Form layout with grid system</p>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="gridForm" (ngSubmit)="onGridFormSubmit()">
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="gridFirstName" class="form-label">First Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="gridFirstName"
+                  formControlName="firstName"
+                  placeholder="Enter first name"
+                  [ngClass]="{'is-invalid': gridForm.get('firstName')?.invalid && gridForm.get('firstName')?.touched}">
+                <div *ngIf="gridForm.get('firstName')?.hasError('required') && gridForm.get('firstName')?.touched" class="invalid-feedback">
+                  First name is required
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="gridLastName" class="form-label">Last Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="gridLastName"
+                  formControlName="lastName"
+                  placeholder="Enter last name"
+                  [ngClass]="{'is-invalid': gridForm.get('lastName')?.invalid && gridForm.get('lastName')?.touched}">
+                <div *ngIf="gridForm.get('lastName')?.hasError('required') && gridForm.get('lastName')?.touched" class="invalid-feedback">
+                  Last name is required
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="gridEmail" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="gridEmail"
+                  formControlName="email"
+                  placeholder="Enter email"
+                  [ngClass]="{'is-invalid': gridForm.get('email')?.invalid && gridForm.get('email')?.touched}">
+                <div *ngIf="gridForm.get('email')?.hasError('required') && gridForm.get('email')?.touched" class="invalid-feedback">
+                  Email is required
+                </div>
+                <div *ngIf="gridForm.get('email')?.hasError('email') && gridForm.get('email')?.touched" class="invalid-feedback">
+                  Please enter a valid email address
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="gridPhone" class="form-label">Phone</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="gridPhone"
+                  formControlName="phone"
+                  placeholder="Enter phone number">
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="gridAddress" class="form-label">Address</label>
+              <textarea
+                class="form-control"
+                id="gridAddress"
+                formControlName="address"
+                placeholder="Enter address"
+                rows="2"></textarea>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-5">
+                <label for="gridCity" class="form-label">City</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="gridCity"
+                  formControlName="city"
+                  placeholder="Enter city">
+              </div>
+              <div class="col-md-4">
+                <label for="gridState" class="form-label">State</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="gridState"
+                  formControlName="state"
+                  placeholder="Enter state">
+              </div>
+              <div class="col-md-3">
+                <label for="gridZip" class="form-label">Zip</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="gridZip"
+                  formControlName="zip"
+                  placeholder="Enter zip">
+              </div>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button class="btn btn-primary" type="submit" [disabled]="gridForm.invalid">Submit</button>
+              <button class="btn btn-secondary" type="button">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inline Form -->
+    <div class="col-12 mb-4">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Inline Form</h5>
+          <p class="card-subtitle">Form with inline layout for compact spaces</p>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="inlineForm" (ngSubmit)="onInlineFormSubmit()" class="row row-cols-lg-auto g-3 align-items-center">
+            <div class="col-12">
+              <label class="visually-hidden" for="inlineUsername">Username</label>
+              <div class="input-group">
+                <div class="input-group-text"><i class="bi bi-person"></i></div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inlineUsername"
+                  formControlName="username"
+                  placeholder="Username"
+                  [ngClass]="{'is-invalid': inlineForm.get('username')?.invalid && inlineForm.get('username')?.touched}">
+                <div *ngIf="inlineForm.get('username')?.hasError('required') && inlineForm.get('username')?.touched" class="invalid-feedback">
+                  Username is required
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label class="visually-hidden" for="inlinePassword">Password</label>
+              <div class="input-group">
+                <div class="input-group-text"><i class="bi bi-lock"></i></div>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="inlinePassword"
+                  formControlName="password"
+                  placeholder="Password"
+                  [ngClass]="{'is-invalid': inlineForm.get('password')?.invalid && inlineForm.get('password')?.touched}">
+                <div *ngIf="inlineForm.get('password')?.hasError('required') && inlineForm.get('password')?.touched" class="invalid-feedback">
+                  Password is required
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="inlineRememberMe" formControlName="rememberMe">
+                <label class="form-check-label" for="inlineRememberMe">
+                  Remember me
+                </label>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit" [disabled]="inlineForm.invalid">Sign In</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Form -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Payment Form</h5>
+          <p class="card-subtitle">Credit card payment form layout</p>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="cardForm" (ngSubmit)="onCardFormSubmit()">
+            <div class="mb-3">
+              <label for="cardName" class="form-label">Name on Card</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cardName"
+                formControlName="cardName"
+                placeholder="Enter name as it appears on card"
+                [ngClass]="{'is-invalid': cardForm.get('cardName')?.invalid && cardForm.get('cardName')?.touched}">
+              <div *ngIf="cardForm.get('cardName')?.hasError('required') && cardForm.get('cardName')?.touched" class="invalid-feedback">
+                Name is required
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="cardNumber" class="form-label">Card Number</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cardNumber"
+                formControlName="cardNumber"
+                placeholder="Enter card number"
+                [ngClass]="{'is-invalid': cardForm.get('cardNumber')?.invalid && cardForm.get('cardNumber')?.touched}">
+              <div *ngIf="cardForm.get('cardNumber')?.hasError('required') && cardForm.get('cardNumber')?.touched" class="invalid-feedback">
+                Card number is required
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-5">
+                <label for="expiryMonth" class="form-label">Expiry Month</label>
+                <select
+                  class="form-select"
+                  id="expiryMonth"
+                  formControlName="expiryMonth"
+                  [ngClass]="{'is-invalid': cardForm.get('expiryMonth')?.invalid && cardForm.get('expiryMonth')?.touched}">
+                  <option value="" disabled selected>Select month</option>
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+                <div *ngIf="cardForm.get('expiryMonth')?.hasError('required') && cardForm.get('expiryMonth')?.touched" class="invalid-feedback">
+                  Month is required
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="expiryYear" class="form-label">Expiry Year</label>
+                <select
+                  class="form-select"
+                  id="expiryYear"
+                  formControlName="expiryYear"
+                  [ngClass]="{'is-invalid': cardForm.get('expiryYear')?.invalid && cardForm.get('expiryYear')?.touched}">
+                  <option value="" disabled selected>Select year</option>
+                  <option value="2023">2023</option>
+                  <option value="2024">2024</option>
+                  <option value="2025">2025</option>
+                  <option value="2026">2026</option>
+                  <option value="2027">2027</option>
+                  <option value="2028">2028</option>
+                </select>
+                <div *ngIf="cardForm.get('expiryYear')?.hasError('required') && cardForm.get('expiryYear')?.touched" class="invalid-feedback">
+                  Year is required
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="cvv" class="form-label">CVV</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cvv"
+                  formControlName="cvv"
+                  placeholder="CVV"
+                  maxlength="4"
+                  [ngClass]="{'is-invalid': cardForm.get('cvv')?.invalid && cardForm.get('cvv')?.touched}">
+                <div *ngIf="cardForm.get('cvv')?.hasError('required') && cardForm.get('cvv')?.touched" class="invalid-feedback">
+                  CVV is required
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button class="btn btn-primary" type="submit" [disabled]="cardForm.invalid">Pay Now</button>
+              <button class="btn btn-secondary" type="button">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form with Tabs -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Form with Tabs</mat-card-title>
+          <mat-card-subtitle>Multi-step form with tabbed layout</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="tabsForm" (ngSubmit)="onTabsFormSubmit()">
+            <mat-tab-group>
+              <mat-tab label="Personal Info">
+                <div class="tab-content">
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="firstName" placeholder="Enter first name">
+                    <mat-error *ngIf="tabsForm.get('firstName')?.hasError('required')">
+                      First name is required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="lastName" placeholder="Enter last name">
+                    <mat-error *ngIf="tabsForm.get('lastName')?.hasError('required')">
+                      Last name is required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" placeholder="Enter email" type="email">
+                    <mat-error *ngIf="tabsForm.get('email')?.hasError('required')">
+                      Email is required
+                    </mat-error>
+                    <mat-error *ngIf="tabsForm.get('email')?.hasError('email')">
+                      Please enter a valid email address
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Phone</mat-label>
+                    <input matInput formControlName="phone" placeholder="Enter phone number">
+                  </mat-form-field>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Address">
+                <div class="tab-content">
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput formControlName="address" placeholder="Enter address" rows="3"></textarea>
+                    <mat-error *ngIf="tabsForm.get('address')?.hasError('required')">
+                      Address is required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <div class="row">
+                    <div class="col-md-5">
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>City</mat-label>
+                        <input matInput formControlName="city" placeholder="Enter city">
+                        <mat-error *ngIf="tabsForm.get('city')?.hasError('required')">
+                          City is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>State</mat-label>
+                        <input matInput formControlName="state" placeholder="Enter state">
+                        <mat-error *ngIf="tabsForm.get('state')?.hasError('required')">
+                          State is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-3">
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Zip</mat-label>
+                        <input matInput formControlName="zip" placeholder="Enter zip">
+                        <mat-error *ngIf="tabsForm.get('zip')?.hasError('required')">
+                          Zip is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Payment">
+                <div class="tab-content">
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Name on Card</mat-label>
+                    <input matInput formControlName="cardName" placeholder="Enter name as it appears on card">
+                    <mat-error *ngIf="tabsForm.get('cardName')?.hasError('required')">
+                      Name is required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Card Number</mat-label>
+                    <input matInput formControlName="cardNumber" placeholder="Enter card number">
+                    <mat-error *ngIf="tabsForm.get('cardNumber')?.hasError('required')">
+                      Card number is required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <div class="row">
+                    <div class="col-md-5">
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Expiry Month</mat-label>
+                        <mat-select formControlName="expiryMonth">
+                          <mat-option value="01">01</mat-option>
+                          <mat-option value="02">02</mat-option>
+                          <mat-option value="03">03</mat-option>
+                          <mat-option value="04">04</mat-option>
+                          <mat-option value="05">05</mat-option>
+                          <mat-option value="06">06</mat-option>
+                          <mat-option value="07">07</mat-option>
+                          <mat-option value="08">08</mat-option>
+                          <mat-option value="09">09</mat-option>
+                          <mat-option value="10">10</mat-option>
+                          <mat-option value="11">11</mat-option>
+                          <mat-option value="12">12</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="tabsForm.get('expiryMonth')?.hasError('required')">
+                          Month is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Expiry Year</mat-label>
+                        <mat-select formControlName="expiryYear">
+                          <mat-option value="2023">2023</mat-option>
+                          <mat-option value="2024">2024</mat-option>
+                          <mat-option value="2025">2025</mat-option>
+                          <mat-option value="2026">2026</mat-option>
+                          <mat-option value="2027">2027</mat-option>
+                          <mat-option value="2028">2028</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="tabsForm.get('expiryYear')?.hasError('required')">
+                          Year is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-3">
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>CVV</mat-label>
+                        <input matInput formControlName="cvv" placeholder="CVV" maxlength="4">
+                        <mat-error *ngIf="tabsForm.get('cvv')?.hasError('required')">
+                          CVV is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+
+            <div class="form-actions mt-3">
+              <button mat-raised-button color="primary" type="submit" [disabled]="tabsForm.invalid">Submit</button>
+              <button mat-button type="button">Cancel</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

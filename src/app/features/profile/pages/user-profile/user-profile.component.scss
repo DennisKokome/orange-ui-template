@@ -1,0 +1,219 @@
+// Profile Card Styles
+.profile-card {
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.profile-header {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.profile-avatar {
+  position: relative;
+  margin: 0 auto 1rem;
+  width: 120px;
+  height: 120px;
+}
+
+.avatar-icon-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 3px solid var(--orange-primary);
+  background-color: var(--orange-primary-light);
+}
+
+.avatar-icon {
+  font-size: 80px;
+  height: 80px;
+  width: 80px;
+  color: var(--orange-primary);
+}
+
+.avatar-edit-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(0, 0);
+}
+
+.profile-name {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--orange-text);
+}
+
+.profile-email {
+  margin: 0;
+  color: var(--orange-text-light);
+  font-size: 0.9rem;
+}
+
+.profile-stats {
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--orange-text-light);
+  margin-bottom: 0.25rem;
+}
+
+.stat-value {
+  font-weight: 600;
+  color: var(--orange-text);
+}
+
+.profile-actions {
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.action-button {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+// Tab Content Styles
+.tab-content {
+  padding: 1.5rem;
+}
+
+// Form Styles
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+// Gender Field Styles
+.gender-field {
+  margin-top: 1rem;
+}
+
+.gender-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.75rem;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.radio-button {
+  margin-right: 1rem;
+}
+
+.radio-error {
+  color: var(--orange-error);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+// Preferences Styles
+.preferences-section {
+  margin-bottom: 1.5rem;
+}
+
+.preferences-section h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--orange-text);
+}
+
+.preference-checkbox {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+// Security Styles
+.security-section {
+  margin-bottom: 1.5rem;
+}
+
+.security-section h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--orange-text);
+}
+
+// Responsive Adjustments
+@media (max-width: 767.98px) {
+  .profile-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .stat-item {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .radio-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+// Boosted Orange Specific Styles
+:host ::ng-deep {
+  // Style Material tabs to match Boosted Orange
+  .mat-mdc-tab-header {
+    border-bottom: 1px solid var(--orange-border);
+  }
+
+  .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+    color: var(--orange-primary);
+  }
+
+  .mat-mdc-tab .mdc-tab-indicator__content--underline {
+    border-color: var(--orange-primary);
+  }
+
+  // Style Material form fields to match Boosted Orange
+  .mat-mdc-form-field-focus-overlay {
+    background-color: var(--orange-primary-light);
+  }
+
+  .mat-mdc-form-field.mat-focused .mat-mdc-form-field-ripple {
+    background-color: var(--orange-primary);
+  }
+
+  // Style Material buttons to match Boosted Orange
+  .mat-mdc-raised-button.mat-primary {
+    background-color: var(--orange-primary);
+  }
+
+  .mat-mdc-raised-button.mat-primary:hover {
+    background-color: var(--orange-primary-dark);
+  }
+
+  // Style Material checkboxes to match Boosted Orange
+  .mat-mdc-checkbox.mat-primary {
+    --mdc-checkbox-selected-checkmark-color: #fff;
+    --mdc-checkbox-selected-focus-icon-color: var(--orange-primary);
+    --mdc-checkbox-selected-hover-icon-color: var(--orange-primary);
+    --mdc-checkbox-selected-icon-color: var(--orange-primary);
+    --mdc-checkbox-selected-pressed-icon-color: var(--orange-primary-dark);
+  }
+}

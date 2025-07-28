@@ -1,0 +1,150 @@
+<div class="container-fluid">
+  <div class="row page-title">
+    <div class="col-12">
+      <h1>Form Editor</h1>
+      <p class="text-muted">Rich text editor using Boosted Orange styling</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Basic Editor</mat-card-title>
+          <mat-card-subtitle>A simple rich text editor with formatting options</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <!-- Editor Toolbar -->
+          <div class="editor-toolbar">
+            <div class="toolbar-group">
+              <button mat-icon-button matTooltip="Bold" (click)="applyBold()">
+                <mat-icon>format_bold</mat-icon>
+              </button>
+              <button mat-icon-button matTooltip="Italic" (click)="applyItalic()">
+                <mat-icon>format_italic</mat-icon>
+              </button>
+              <button mat-icon-button matTooltip="Underline" (click)="applyUnderline()">
+                <mat-icon>format_underlined</mat-icon>
+              </button>
+            </div>
+
+            <div class="toolbar-group">
+              <mat-form-field appearance="outline" class="font-size-select">
+                <mat-select [(ngModel)]="selectedFontSize" (selectionChange)="changeFontSize()">
+                  <mat-option *ngFor="let size of fontSizes" [value]="size">
+                    {{ size }}px
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="toolbar-group">
+              <button mat-icon-button matTooltip="Insert Link" (click)="insertLink()">
+                <mat-icon>link</mat-icon>
+              </button>
+              <button mat-icon-button matTooltip="Insert Image" (click)="insertImage()">
+                <mat-icon>image</mat-icon>
+              </button>
+            </div>
+
+            <div class="toolbar-group">
+              <button mat-icon-button matTooltip="Align Left" (click)="alignLeft()">
+                <mat-icon>format_align_left</mat-icon>
+              </button>
+              <button mat-icon-button matTooltip="Align Center" (click)="alignCenter()">
+                <mat-icon>format_align_center</mat-icon>
+              </button>
+              <button mat-icon-button matTooltip="Align Right" (click)="alignRight()">
+                <mat-icon>format_align_right</mat-icon>
+              </button>
+            </div>
+
+            <div class="toolbar-group">
+              <button mat-icon-button matTooltip="Ordered List" (click)="insertOrderedList()">
+                <mat-icon>format_list_numbered</mat-icon>
+              </button>
+              <button mat-icon-button matTooltip="Unordered List" (click)="insertUnorderedList()">
+                <mat-icon>format_list_bulleted</mat-icon>
+              </button>
+            </div>
+          </div>
+
+          <!-- Editor Content Area -->
+          <div class="editor-content-wrapper">
+            <textarea
+              class="editor-content"
+              [(ngModel)]="editorContent"
+              placeholder="Start typing here..."></textarea>
+          </div>
+
+          <mat-divider class="my-4"></mat-divider>
+
+          <!-- Preview Section -->
+          <div class="preview-section">
+            <h3 class="section-title">Preview</h3>
+            <div class="preview-content" [innerHTML]="editorContent"></div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Form with Editor</mat-card-title>
+          <mat-card-subtitle>Example of a form with rich text editor</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form class="editor-form">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Title</mat-label>
+              <input matInput placeholder="Enter title">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Category</mat-label>
+              <mat-select>
+                <mat-option value="news">News</mat-option>
+                <mat-option value="blog">Blog</mat-option>
+                <mat-option value="announcement">Announcement</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <div class="form-group">
+              <label class="form-label">Content</label>
+              <!-- Simplified Editor for Form -->
+              <div class="editor-toolbar simplified">
+                <button mat-icon-button matTooltip="Bold">
+                  <mat-icon>format_bold</mat-icon>
+                </button>
+                <button mat-icon-button matTooltip="Italic">
+                  <mat-icon>format_italic</mat-icon>
+                </button>
+                <button mat-icon-button matTooltip="Underline">
+                  <mat-icon>format_underlined</mat-icon>
+                </button>
+                <button mat-icon-button matTooltip="Insert Link">
+                  <mat-icon>link</mat-icon>
+                </button>
+                <button mat-icon-button matTooltip="Insert Image">
+                  <mat-icon>image</mat-icon>
+                </button>
+              </div>
+              <textarea class="form-control editor-textarea" rows="6" placeholder="Write your content here..."></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button mat-raised-button color="primary" type="submit">
+                <mat-icon>save</mat-icon>
+                Save
+              </button>
+              <button mat-stroked-button type="button" class="ms-2">
+                Cancel
+              </button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

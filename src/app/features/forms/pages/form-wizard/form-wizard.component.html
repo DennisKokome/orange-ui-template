@@ -1,0 +1,566 @@
+<div class="container-fluid">
+  <div class="row page-title">
+    <div class="col-12">
+      <h1>Form Wizards</h1>
+      <p class="text-muted">Multi-step form wizards using Angular Material Stepper and Boosted Orange</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Linear Stepper (Horizontal) -->
+    <div class="col-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Linear Stepper (Horizontal)</mat-card-title>
+          <mat-card-subtitle>Step-by-step form with validation between steps</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-stepper linear #linearStepper>
+            <!-- Personal Information Step -->
+            <mat-step [stepControl]="personalFormGroup" label="Personal Information">
+              <form [formGroup]="personalFormGroup">
+                <div class="step-content">
+                  <h3 class="step-title">Personal Information</h3>
+                  <p class="step-description">Please provide your personal details</p>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>First Name</mat-label>
+                        <input matInput formControlName="firstName" placeholder="Enter first name">
+                        <mat-error *ngIf="personalFormGroup.get('firstName')?.hasError('required')">
+                          First name is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput formControlName="lastName" placeholder="Enter last name">
+                        <mat-error *ngIf="personalFormGroup.get('lastName')?.hasError('required')">
+                          Last name is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email" placeholder="Enter email" type="email">
+                        <mat-error *ngIf="personalFormGroup.get('email')?.hasError('required')">
+                          Email is required
+                        </mat-error>
+                        <mat-error *ngIf="personalFormGroup.get('email')?.hasError('email')">
+                          Please enter a valid email address
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Phone</mat-label>
+                        <input matInput formControlName="phone" placeholder="Enter phone number">
+                        <mat-hint>8-digit number without spaces or dashes</mat-hint>
+                        <mat-error *ngIf="personalFormGroup.get('phone')?.hasError('pattern')">
+                          Please enter a valid 8-digit phone number
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="step-actions">
+                    <button mat-button matStepperNext [disabled]="personalFormGroup.invalid">Next</button>
+                  </div>
+                </div>
+              </form>
+            </mat-step>
+
+            <!-- Address Step -->
+            <mat-step [stepControl]="addressFormGroup" label="Address">
+              <form [formGroup]="addressFormGroup">
+                <div class="step-content">
+                  <h3 class="step-title">Address Information</h3>
+                  <p class="step-description">Please provide your address details</p>
+
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput formControlName="address" placeholder="Enter address" rows="2"></textarea>
+                    <mat-error *ngIf="addressFormGroup.get('address')?.hasError('required')">
+                      Address is required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>City</mat-label>
+                        <input matInput formControlName="city" placeholder="Enter city">
+                        <mat-error *ngIf="addressFormGroup.get('city')?.hasError('required')">
+                          City is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>State</mat-label>
+                        <input matInput formControlName="state" placeholder="Enter state">
+                        <mat-error *ngIf="addressFormGroup.get('state')?.hasError('required')">
+                          State is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Zip Code</mat-label>
+                        <input matInput formControlName="zip" placeholder="Enter zip code">
+                        <mat-error *ngIf="addressFormGroup.get('zip')?.hasError('required')">
+                          Zip code is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Country</mat-label>
+                        <mat-select formControlName="country">
+                          <mat-option *ngFor="let country of countries" [value]="country.value">
+                            {{country.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="addressFormGroup.get('country')?.hasError('required')">
+                          Country is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="step-actions">
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext [disabled]="addressFormGroup.invalid">Next</button>
+                  </div>
+                </div>
+              </form>
+            </mat-step>
+
+            <!-- Payment Step -->
+            <mat-step [stepControl]="paymentFormGroup" label="Payment">
+              <form [formGroup]="paymentFormGroup">
+                <div class="step-content">
+                  <h3 class="step-title">Payment Information</h3>
+                  <p class="step-description">Please provide your payment details</p>
+
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Card Type</mat-label>
+                    <mat-select formControlName="cardType">
+                      <mat-option *ngFor="let card of cardTypes" [value]="card.value">
+                        {{card.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="paymentFormGroup.get('cardType')?.hasError('required')">
+                      Card type is required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Name on Card</mat-label>
+                    <input matInput formControlName="cardName" placeholder="Enter name as it appears on card">
+                    <mat-error *ngIf="paymentFormGroup.get('cardName')?.hasError('required')">
+                      Name on card is required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Card Number</mat-label>
+                    <input matInput formControlName="cardNumber" placeholder="Enter card number">
+                    <mat-hint>16-digit number without spaces</mat-hint>
+                    <mat-error *ngIf="paymentFormGroup.get('cardNumber')?.hasError('required')">
+                      Card number is required
+                    </mat-error>
+                    <mat-error *ngIf="paymentFormGroup.get('cardNumber')?.hasError('pattern')">
+                      Please enter a valid 16-digit card number
+                    </mat-error>
+                  </mat-form-field>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Expiry Month</mat-label>
+                        <mat-select formControlName="expiryMonth">
+                          <mat-option value="01">01</mat-option>
+                          <mat-option value="02">02</mat-option>
+                          <mat-option value="03">03</mat-option>
+                          <mat-option value="04">04</mat-option>
+                          <mat-option value="05">05</mat-option>
+                          <mat-option value="06">06</mat-option>
+                          <mat-option value="07">07</mat-option>
+                          <mat-option value="08">08</mat-option>
+                          <mat-option value="09">09</mat-option>
+                          <mat-option value="10">10</mat-option>
+                          <mat-option value="11">11</mat-option>
+                          <mat-option value="12">12</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="paymentFormGroup.get('expiryMonth')?.hasError('required')">
+                          Expiry month is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Expiry Year</mat-label>
+                        <mat-select formControlName="expiryYear">
+                          <mat-option value="2023">2023</mat-option>
+                          <mat-option value="2024">2024</mat-option>
+                          <mat-option value="2025">2025</mat-option>
+                          <mat-option value="2026">2026</mat-option>
+                          <mat-option value="2027">2027</mat-option>
+                          <mat-option value="2028">2028</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="paymentFormGroup.get('expiryYear')?.hasError('required')">
+                          Expiry year is required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>CVV</mat-label>
+                        <input matInput formControlName="cvv" placeholder="CVV" maxlength="4">
+                        <mat-hint>3 or 4 digits</mat-hint>
+                        <mat-error *ngIf="paymentFormGroup.get('cvv')?.hasError('required')">
+                          CVV is required
+                        </mat-error>
+                        <mat-error *ngIf="paymentFormGroup.get('cvv')?.hasError('pattern')">
+                          Please enter a valid CVV
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="step-actions">
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext [disabled]="paymentFormGroup.invalid">Next</button>
+                  </div>
+                </div>
+              </form>
+            </mat-step>
+
+            <!-- Confirmation Step -->
+            <mat-step [stepControl]="confirmationFormGroup" label="Confirmation">
+              <form [formGroup]="confirmationFormGroup">
+                <div class="step-content">
+                  <h3 class="step-title">Confirm Your Information</h3>
+                  <p class="step-description">Please review your information and confirm</p>
+
+                  <div class="confirmation-section">
+                    <h4>Personal Information</h4>
+                    <p><strong>Name:</strong> {{personalFormGroup.get('firstName')?.value}} {{personalFormGroup.get('lastName')?.value}}</p>
+                    <p><strong>Email:</strong> {{personalFormGroup.get('email')?.value}}</p>
+                    <p *ngIf="personalFormGroup.get('phone')?.value"><strong>Phone:</strong> {{personalFormGroup.get('phone')?.value}}</p>
+                  </div>
+
+                  <div class="confirmation-section">
+                    <h4>Address Information</h4>
+                    <p><strong>Address:</strong> {{addressFormGroup.get('address')?.value}}</p>
+                    <p><strong>City:</strong> {{addressFormGroup.get('city')?.value}}</p>
+                    <p><strong>State:</strong> {{addressFormGroup.get('state')?.value}}</p>
+                    <p><strong>Zip Code:</strong> {{addressFormGroup.get('zip')?.value}}</p>
+                    <p><strong>Country:</strong> {{addressFormGroup.get('country')?.value}}</p>
+                  </div>
+
+                  <div class="confirmation-section">
+                    <h4>Payment Information</h4>
+                    <p><strong>Card Type:</strong> {{paymentFormGroup.get('cardType')?.value}}</p>
+                    <p><strong>Name on Card:</strong> {{paymentFormGroup.get('cardName')?.value}}</p>
+                    <p><strong>Card Number:</strong> **** **** **** {{paymentFormGroup.get('cardNumber')?.value?.slice(-4)}}</p>
+                    <p><strong>Expiry Date:</strong> {{paymentFormGroup.get('expiryMonth')?.value}}/{{paymentFormGroup.get('expiryYear')?.value}}</p>
+                  </div>
+
+                  <mat-checkbox formControlName="terms" color="primary" class="mb-3">
+                    I agree to the terms and conditions
+                  </mat-checkbox>
+                  <mat-error *ngIf="confirmationFormGroup.get('terms')?.hasError('required') && confirmationFormGroup.get('terms')?.touched" class="checkbox-error">
+                    You must agree to the terms and conditions
+                  </mat-error>
+
+                  <div class="step-actions">
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-raised-button color="primary" (click)="onLinearFormSubmit()" [disabled]="confirmationFormGroup.invalid">Submit</button>
+                    <button mat-button (click)="linearStepper.reset()">Reset</button>
+                  </div>
+                </div>
+              </form>
+            </mat-step>
+          </mat-stepper>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Non-Linear Stepper -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Non-Linear Stepper</mat-card-title>
+          <mat-card-subtitle>Form wizard with free navigation between steps</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-stepper #nonLinearStepper>
+            <!-- Account Step -->
+            <mat-step [stepControl]="accountFormGroup" label="Account">
+              <form [formGroup]="accountFormGroup">
+                <div class="step-content">
+                  <h3 class="step-title">Account Information</h3>
+
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Username</mat-label>
+                    <input matInput formControlName="username" placeholder="Choose a username">
+                    <mat-hint>Minimum 4 characters</mat-hint>
+                    <mat-error *ngIf="accountFormGroup.get('username')?.hasError('required')">
+                      Username is required
+                    </mat-error>
+                    <mat-error *ngIf="accountFormGroup.get('username')?.hasError('minlength')">
+                      Username must be at least 4 characters
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" placeholder="Enter email" type="email">
+                    <mat-error *ngIf="accountFormGroup.get('email')?.hasError('required')">
+                      Email is required
+                    </mat-error>
+                    <mat-error *ngIf="accountFormGroup.get('email')?.hasError('email')">
+                      Please enter a valid email address
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password" placeholder="Enter password" type="password">
+                    <mat-hint>Minimum 8 characters</mat-hint>
+                    <mat-error *ngIf="accountFormGroup.get('password')?.hasError('required')">
+                      Password is required
+                    </mat-error>
+                    <mat-error *ngIf="accountFormGroup.get('password')?.hasError('minlength')">
+                      Password must be at least 8 characters
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput formControlName="confirmPassword" placeholder="Confirm password" type="password">
+                    <mat-error *ngIf="accountFormGroup.get('confirmPassword')?.hasError('required')">
+                      Please confirm your password
+                    </mat-error>
+                    <mat-error *ngIf="accountFormGroup.get('confirmPassword')?.hasError('passwordMismatch')">
+                      Passwords do not match
+                    </mat-error>
+                  </mat-form-field>
+
+                  <div class="step-actions">
+                    <button mat-button matStepperNext>Next</button>
+                  </div>
+                </div>
+              </form>
+            </mat-step>
+
+            <!-- Profile Step -->
+            <mat-step [stepControl]="profileFormGroup" label="Profile">
+              <form [formGroup]="profileFormGroup">
+                <div class="step-content">
+                  <h3 class="step-title">Profile Information</h3>
+
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Full Name</mat-label>
+                    <input matInput formControlName="fullName" placeholder="Enter your full name">
+                    <mat-error *ngIf="profileFormGroup.get('fullName')?.hasError('required')">
+                      Full name is required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Birth Date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="birthDate" placeholder="Choose a date">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="profileFormGroup.get('birthDate')?.hasError('required')">
+                      Birth date is required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <div class="gender-field">
+                    <label class="gender-label">Gender</label>
+                    <mat-radio-group formControlName="gender" class="radio-group">
+                      <mat-radio-button *ngFor="let option of genderOptions" [value]="option.value" class="radio-button">
+                        {{option.label}}
+                      </mat-radio-button>
+                    </mat-radio-group>
+                    <mat-error *ngIf="profileFormGroup.get('gender')?.hasError('required') && profileFormGroup.get('gender')?.touched" class="radio-error">
+                      Please select a gender
+                    </mat-error>
+                  </div>
+
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Bio</mat-label>
+                    <textarea matInput formControlName="bio" placeholder="Tell us about yourself" rows="3"></textarea>
+                  </mat-form-field>
+
+                  <div class="step-actions">
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                  </div>
+                </div>
+              </form>
+            </mat-step>
+
+            <!-- Preferences Step -->
+            <mat-step [stepControl]="preferencesFormGroup" label="Preferences">
+              <form [formGroup]="preferencesFormGroup">
+                <div class="step-content">
+                  <h3 class="step-title">Preferences</h3>
+
+                  <div class="preferences-section">
+                    <h4>Communication Preferences</h4>
+                    <mat-checkbox formControlName="receiveEmails" color="primary" class="preference-checkbox">
+                      Receive email notifications
+                    </mat-checkbox>
+
+                    <mat-checkbox formControlName="receiveNotifications" color="primary" class="preference-checkbox">
+                      Receive push notifications
+                    </mat-checkbox>
+                  </div>
+
+                  <div class="preferences-section">
+                    <h4>Display Preferences</h4>
+                    <mat-form-field appearance="outline" class="full-width">
+                      <mat-label>Theme</mat-label>
+                      <mat-select formControlName="theme">
+                        <mat-option value="light">Light</mat-option>
+                        <mat-option value="dark">Dark</mat-option>
+                        <mat-option value="system">System Default</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                      <mat-label>Language</mat-label>
+                      <mat-select formControlName="language">
+                        <mat-option value="en">English</mat-option>
+                        <mat-option value="fr">French</mat-option>
+                        <mat-option value="es">Spanish</mat-option>
+                        <mat-option value="de">German</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="step-actions">
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-raised-button color="primary" (click)="onNonLinearFormSubmit()">Submit</button>
+                    <button mat-button (click)="nonLinearStepper.reset()">Reset</button>
+                  </div>
+                </div>
+              </form>
+            </mat-step>
+          </mat-stepper>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Vertical Stepper -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Vertical Stepper</mat-card-title>
+          <mat-card-subtitle>Form wizard with vertical layout</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-stepper orientation="vertical" linear #verticalStepper>
+            <!-- Step 1 -->
+            <mat-step [stepControl]="step1FormGroup" label="Basic Information">
+              <form [formGroup]="step1FormGroup">
+                <div class="step-content">
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" placeholder="Enter your name">
+                    <mat-error *ngIf="step1FormGroup.get('name')?.hasError('required')">
+                      Name is required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" placeholder="Enter your email" type="email">
+                    <mat-error *ngIf="step1FormGroup.get('email')?.hasError('required')">
+                      Email is required
+                    </mat-error>
+                    <mat-error *ngIf="step1FormGroup.get('email')?.hasError('email')">
+                      Please enter a valid email address
+                    </mat-error>
+                  </mat-form-field>
+
+                  <div class="step-actions">
+                    <button mat-button matStepperNext [disabled]="step1FormGroup.invalid">Next</button>
+                  </div>
+                </div>
+              </form>
+            </mat-step>
+
+            <!-- Step 2 -->
+            <mat-step [stepControl]="step2FormGroup" label="Contact Information">
+              <form [formGroup]="step2FormGroup">
+                <div class="step-content">
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput formControlName="address" placeholder="Enter your address" rows="3"></textarea>
+                    <mat-error *ngIf="step2FormGroup.get('address')?.hasError('required')">
+                      Address is required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Phone</mat-label>
+                    <input matInput formControlName="phone" placeholder="Enter your phone number">
+                    <mat-hint>8-digit number without spaces or dashes</mat-hint>
+                    <mat-error *ngIf="step2FormGroup.get('phone')?.hasError('pattern')">
+                      Please enter a valid 8-digit phone number
+                    </mat-error>
+                  </mat-form-field>
+
+                  <div class="step-actions">
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext [disabled]="step2FormGroup.invalid">Next</button>
+                  </div>
+                </div>
+              </form>
+            </mat-step>
+
+            <!-- Step 3 -->
+            <mat-step [stepControl]="step3FormGroup" label="Confirmation">
+              <form [formGroup]="step3FormGroup">
+                <div class="step-content">
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Additional Comments</mat-label>
+                    <textarea matInput formControlName="comments" placeholder="Any additional comments?" rows="3"></textarea>
+                  </mat-form-field>
+
+                  <mat-checkbox formControlName="terms" color="primary" class="mb-3">
+                    I agree to the terms and conditions
+                  </mat-checkbox>
+                  <mat-error *ngIf="step3FormGroup.get('terms')?.hasError('required') && step3FormGroup.get('terms')?.touched" class="checkbox-error">
+                    You must agree to the terms and conditions
+                  </mat-error>
+
+                  <div class="step-actions">
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-raised-button color="primary" (click)="onVerticalFormSubmit()" [disabled]="step3FormGroup.invalid">Submit</button>
+                    <button mat-button (click)="verticalStepper.reset()">Reset</button>
+                  </div>
+                </div>
+              </form>
+            </mat-step>
+          </mat-stepper>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

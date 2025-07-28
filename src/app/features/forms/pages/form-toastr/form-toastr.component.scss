@@ -1,0 +1,72 @@
+/* Toast notification styles */
+
+.success-snackbar {
+  background-color: var(--orange-success) !important;
+  color: white !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.error-snackbar {
+  background-color: var(--orange-error) !important;
+  color: white !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.warning-snackbar {
+  background-color: var(--orange-warning) !important;
+  color: #212529 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.info-snackbar {
+  background-color: var(--orange-info) !important;
+  color: white !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.custom-snackbar {
+  background-color: var(--orange-supporting-purple) !important;
+  color: white !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Style for the snackbar action button */
+.mat-mdc-snack-bar-action {
+  color: white !important;
+}
+
+.warning-snackbar .mat-mdc-snack-bar-action {
+  color: #212529 !important;
+}
+
+/* Add border radius to snackbar */
+.mdc-snackbar__surface {
+  border-radius: 6px !important;
+}
+
+/* Form card styles */
+mat-card {
+  margin-bottom: 20px;
+}
+
+mat-card-title {
+  margin-bottom: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-col {
+  flex: 1;
+}
+
+button[type="submit"] {
+  margin-top: 16px;
+}

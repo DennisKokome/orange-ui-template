@@ -1,0 +1,58 @@
+.radio-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 15px 0;
+}
+
+.radio-button {
+  margin-right: 16px;
+  margin-bottom: 8px;
+}
+
+.radio-group-vertical {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.radio-button-with-desc {
+  margin-bottom: 16px;
+}
+
+.radio-content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8px;
+}
+
+.radio-label {
+  font-weight: 500;
+}
+
+.radio-description {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 4px;
+}
+
+.page-title {
+  margin-bottom: 24px;
+
+  h1 {
+    margin-bottom: 8px;
+    color: var(--o-primary);
+  }
+}
+
+mat-card {
+  height: 100%;
+}
+
+mat-card-content {
+  padding: 16px;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}

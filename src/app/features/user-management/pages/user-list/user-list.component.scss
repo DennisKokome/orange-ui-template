@@ -1,0 +1,45 @@
+.user-list-container {
+  padding: 1rem;
+}
+
+.card-title {
+  color: #ff7900;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.orange-table {
+  width: 100%;
+}
+
+.mat-mdc-row:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.badge {
+  padding: 0.5em 0.75em;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filters-container {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.mat-column-actions {
+  width: 120px;
+  text-align: center;
+}
+
+.mat-column-id {
+  width: 70px;
+}
+
+.mat-column-status, .mat-column-role {
+  width: 100px;
+}

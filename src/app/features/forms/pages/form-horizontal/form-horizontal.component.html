@@ -1,0 +1,278 @@
+<div class="container-fluid">
+  <div class="row page-title">
+    <div class="col-12">
+      <h1>Horizontal Forms</h1>
+      <p class="text-muted">Form layouts with horizontal alignment using Angular Material and Boosted Orange</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Basic Horizontal Form -->
+    <div class="col-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Basic Horizontal Form</mat-card-title>
+          <mat-card-subtitle>Simple form with horizontal layout</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="basicForm" (ngSubmit)="onBasicFormSubmit()" class="horizontal-form">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">First Name</label>
+              <div class="col-sm-9">
+                <mat-form-field appearance="outline" class="full-width">
+                  <input matInput formControlName="firstName" placeholder="Enter first name">
+                  <mat-error *ngIf="basicForm.get('firstName')?.hasError('required')">
+                    First name is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Last Name</label>
+              <div class="col-sm-9">
+                <mat-form-field appearance="outline" class="full-width">
+                  <input matInput formControlName="lastName" placeholder="Enter last name">
+                  <mat-error *ngIf="basicForm.get('lastName')?.hasError('required')">
+                    Last name is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Email</label>
+              <div class="col-sm-9">
+                <mat-form-field appearance="outline" class="full-width">
+                  <input matInput formControlName="email" placeholder="Enter email" type="email">
+                  <mat-error *ngIf="basicForm.get('email')?.hasError('required')">
+                    Email is required
+                  </mat-error>
+                  <mat-error *ngIf="basicForm.get('email')?.hasError('email')">
+                    Please enter a valid email address
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-9 offset-sm-3">
+                <div class="form-actions">
+                  <button mat-raised-button color="primary" type="submit" [disabled]="basicForm.invalid">Submit</button>
+                  <button mat-button type="button">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Horizontal Form with Validation -->
+    <div class="col-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Horizontal Form with Validation</mat-card-title>
+          <mat-card-subtitle>Form with validation and error messages</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="validationForm" (ngSubmit)="onValidationFormSubmit()" class="horizontal-form">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Username</label>
+              <div class="col-sm-9">
+                <mat-form-field appearance="outline" class="full-width">
+                  <input matInput formControlName="username" placeholder="Choose a username">
+                  <mat-hint>Username must be at least 4 characters</mat-hint>
+                  <mat-error *ngIf="validationForm.get('username')?.hasError('required')">
+                    Username is required
+                  </mat-error>
+                  <mat-error *ngIf="validationForm.get('username')?.hasError('minlength')">
+                    Username must be at least 4 characters
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Password</label>
+              <div class="col-sm-9">
+                <mat-form-field appearance="outline" class="full-width">
+                  <input matInput formControlName="password" placeholder="Enter password" type="password">
+                  <mat-hint>Password must be at least 8 characters</mat-hint>
+                  <mat-error *ngIf="validationForm.get('password')?.hasError('required')">
+                    Password is required
+                  </mat-error>
+                  <mat-error *ngIf="validationForm.get('password')?.hasError('minlength')">
+                    Password must be at least 8 characters
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Confirm Password</label>
+              <div class="col-sm-9">
+                <mat-form-field appearance="outline" class="full-width">
+                  <input matInput formControlName="confirmPassword" placeholder="Confirm password" type="password">
+                  <mat-error *ngIf="validationForm.get('confirmPassword')?.hasError('required')">
+                    Please confirm your password
+                  </mat-error>
+                  <mat-error *ngIf="validationForm.get('confirmPassword')?.hasError('passwordMismatch')">
+                    Passwords do not match
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-9 offset-sm-3">
+                <mat-checkbox formControlName="terms" color="primary">
+                  I agree to the terms and conditions
+                </mat-checkbox>
+                <mat-error *ngIf="validationForm.get('terms')?.hasError('required') && validationForm.get('terms')?.touched" class="checkbox-error">
+                  You must agree to the terms and conditions
+                </mat-error>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-9 offset-sm-3">
+                <div class="form-actions">
+                  <button mat-raised-button color="primary" type="submit" [disabled]="validationForm.invalid">Register</button>
+                  <button mat-button type="button">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Horizontal Form with Different Controls -->
+    <div class="col-12 mb-4">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Horizontal Form with Different Controls</mat-card-title>
+          <mat-card-subtitle>Form with various input types in horizontal layout</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="controlsForm" (ngSubmit)="onControlsFormSubmit()" class="horizontal-form">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Full Name</label>
+              <div class="col-sm-9">
+                <mat-form-field appearance="outline" class="full-width">
+                  <input matInput formControlName="fullName" placeholder="Enter your full name">
+                  <mat-error *ngIf="controlsForm.get('fullName')?.hasError('required')">
+                    Full name is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Email</label>
+              <div class="col-sm-9">
+                <mat-form-field appearance="outline" class="full-width">
+                  <input matInput formControlName="email" placeholder="Enter your email" type="email">
+                  <mat-error *ngIf="controlsForm.get('email')?.hasError('required')">
+                    Email is required
+                  </mat-error>
+                  <mat-error *ngIf="controlsForm.get('email')?.hasError('email')">
+                    Please enter a valid email address
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Phone</label>
+              <div class="col-sm-9">
+                <mat-form-field appearance="outline" class="full-width">
+                  <input matInput formControlName="phone" placeholder="Enter your phone number">
+                  <mat-hint>8-digit number without spaces or dashes</mat-hint>
+                  <mat-error *ngIf="controlsForm.get('phone')?.hasError('pattern')">
+                    Please enter a valid 8-digit phone number
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Gender</label>
+              <div class="col-sm-9">
+                <mat-radio-group formControlName="gender" class="radio-group">
+                  <mat-radio-button *ngFor="let option of genderOptions" [value]="option.value" class="radio-button">
+                    {{option.label}}
+                  </mat-radio-button>
+                </mat-radio-group>
+                <mat-error *ngIf="controlsForm.get('gender')?.hasError('required') && controlsForm.get('gender')?.touched" class="radio-error">
+                  Please select a gender
+                </mat-error>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Birth Date</label>
+              <div class="col-sm-9">
+                <mat-form-field appearance="outline" class="full-width">
+                  <input matInput [matDatepicker]="picker" formControlName="birthDate" placeholder="Choose a date">
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                  <mat-error *ngIf="controlsForm.get('birthDate')?.hasError('required')">
+                    Birth date is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Country</label>
+              <div class="col-sm-9">
+                <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>Select your country</mat-label>
+                  <mat-select formControlName="country">
+                    <mat-option *ngFor="let country of countries" [value]="country.value">
+                      {{country.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="controlsForm.get('country')?.hasError('required')">
+                    Please select a country
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Address</label>
+              <div class="col-sm-9">
+                <mat-form-field appearance="outline" class="full-width">
+                  <textarea matInput formControlName="address" placeholder="Enter your address" rows="3"></textarea>
+                  <mat-error *ngIf="controlsForm.get('address')?.hasError('required')">
+                    Address is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-9 offset-sm-3">
+                <mat-checkbox formControlName="subscribe" color="primary">
+                  Subscribe to our newsletter
+                </mat-checkbox>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-9 offset-sm-3">
+                <div class="form-actions">
+                  <button mat-raised-button color="primary" type="submit" [disabled]="controlsForm.invalid">Submit</button>
+                  <button mat-button type="button">Reset</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

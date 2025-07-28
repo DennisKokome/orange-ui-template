@@ -1,0 +1,97 @@
+// Component-specific styling for UI Components demo
+
+// Card styling for each component section
+.component-card {
+  background-color: var(--orange-card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 2px solid var(--orange-border);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  h2 {
+    color: var(--orange-text);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 3rem;
+      height: 0.25rem;
+      background-color: var(--orange-primary);
+      border-radius: 0.125rem;
+    }
+  }
+
+  h3 {
+    color: var(--orange-text);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: var(--orange-text-light);
+    margin-bottom: 1.5rem;
+  }
+}
+
+// Demo section styling
+.demo-section {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid var(--orange-border);
+}
+
+// Spinner inline styling for button
+.spinner-inline {
+  display: inline-block;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+// Chip list styling
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+// Progress bar spacing
+mat-progress-bar {
+  margin-bottom: 0.5rem;
+}
+
+// Expansion panel styling
+mat-accordion {
+  display: block;
+}
+
+mat-expansion-panel {
+  margin-bottom: 1rem;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .component-card {
+    padding: 1.5rem;
+  }
+
+  .demo-section {
+    padding: 1rem;
+  }
+}
