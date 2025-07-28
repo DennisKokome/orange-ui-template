@@ -19,7 +19,7 @@ RUN npm run build
 FROM nginx:alpine
 
 # Copy the build output to replace the default nginx contents
-COPY --from=build /app/dist/orange-sg-template /usr/share/nginx/html
+COPY --from=build /app/dist/orange-sg-template/browser /usr/share/nginx/html
 
 # Remove default nginx configuration
 RUN rm -f /etc/nginx/conf.d/default.conf
